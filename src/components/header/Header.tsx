@@ -1,8 +1,9 @@
+import React from 'react';
 import './header.scss';
 import '../../styles/index.scss';
 import { Searcher } from 'kiwi-design-system';
 
-const Header = () => {
+export const Header = () => {
   return (
     <section className="grsp__header">
       <div className="grsp__header__container">
@@ -12,5 +13,3 @@ const Header = () => {
     </section>
   );
 }
-
-export default Header;
