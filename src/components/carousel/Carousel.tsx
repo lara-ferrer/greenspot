@@ -2,17 +2,18 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from 'swiper/modules';
 import "swiper/css";
+import { CarouselProps } from "./Carousel.types";
 
-export const Carousel = (carouselItems: JSX.Element[]) => {
+export const Carousel = ({ carouselItems, breakpoints }: CarouselProps) => {
   return (
     <Swiper
-      slidesPerView={3}
-      spaceBetween={30}
+      slidesPerView={1}
+      spaceBetween={10}
       pagination={{
         clickable: true,
       }}
       modules={[Pagination]}
-      className="mySwiper"
+      breakpoints={breakpoints}
     >
       {carouselItems.length && carouselItems.map((item) => <SwiperSlide>{item}</SwiperSlide>)}
     </Swiper>
