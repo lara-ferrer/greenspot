@@ -1,48 +1,45 @@
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/index.scss";
-import Section from "../components/section/Section";
 import { BusinessCard, CityCard } from "kiwi-design-system";
-import { client } from "../sanity-client";
 import { getSanityImageUrl } from "../sanity-images";
+import { Header, Carousel, Section } from "../components";
+import { useFetchData } from "../hooks/useFetchData";
+import { Restaurant, City } from "../queries";
 
 export const Home = () => {
-  const [restaurants, setRestaurants] = useState([]);
-  const [cities, setCities] = useState([]);
+  const restaurants = useFetchData(Restaurant.GetRestaurants);
+  const cities = useFetchData(City.GetCities);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const restaurants = await client.fetch(`*[_type == 'restaurant']`);
-      const cities = await client.fetch(`*[_type == 'city']`);
-
-      setRestaurants(restaurants);
-      setCities(cities);
-    };
-    fetchData();
-  }, []);
+  const carouselItems = cities.map((city, i) => (
+    <CityCard
+      key={i}
+      city={city.cityName}
+      country={city.country}
+      image={getSanityImageUrl(city.coverImage)}
+    />
+  ));
 
   return (
-    <main>
-      <Section title="Últimos negocios añadidos">
-        {restaurants.map((restaurant, i) => (
-          <BusinessCard
-            key={i}
-            title={restaurant.name}
-            address={restaurant.address}
-            categories={restaurant.categories}
-            image={getSanityImageUrl(restaurant.coverImage)}
-          />
-        ))}
-      </Section>
-      <Section title="Ciudades comprometidas con la revolución verde">
-        {cities.map((city, i) => (
-          <CityCard
-            key={i}
-            city={city.cityName}
-            country={city.country}
-            image={getSanityImageUrl(city.coverImage)}
-          />
-        ))}
-      </Section>
-    </main>
+    <>
+      <Header />
+      <main>
+        <Section title="Últimos negocios añadidos">
+          {restaurants.map((restaurant, i) => (
+            <Link to={`/business/${restaurant.url}`}>
+              <BusinessCard
+                key={i}
+                title={restaurant.name}
+                address={restaurant.address}
+                categories={restaurant.categories}
+                image={getSanityImageUrl(restaurant.coverImage)}
+              />
+            </Link>
+          ))}
+        </Section>
+        <Section title="Ciudades comprometidas con la revolución verde">
+          <Carousel carouselItems={carouselItems} />
+        </Section>
+      </main>
+    </>
   );
 };
