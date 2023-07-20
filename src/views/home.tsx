@@ -23,7 +23,7 @@ export const Home = () => {
   ));
 
   const cityCards = cities.map((city, i) => (
-    <Link to={`/city/${city.cityName}`}>
+    <Link to={`/cities/${city.cityName}`}>
       <CityCard
         key={i}
         city={city.cityName}
@@ -67,10 +67,10 @@ export const Home = () => {
     <>
       <Header />
       <main>
-        <Section title="Últimos negocios añadidos">
+        <Section title="Últimos negocios añadidos" link="cities">
           <Carousel carouselItems={restaurantCards} breakpoints={restaurantsBps} />
         </Section>
-        <Section title="Ciudades comprometidas con la revolución verde">
+        <Section title="Ciudades comprometidas con la revolución verde" link="business">
           <Carousel carouselItems={cityCards} breakpoints={cityBps} />
         </Section>
       </main>
