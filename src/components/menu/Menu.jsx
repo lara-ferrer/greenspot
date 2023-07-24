@@ -5,7 +5,7 @@ import logo from '../../assets/brand/logo-green.svg';
 const Menu = () => {
   return (
     <nav className="grsp__menu">
-        <img src={logo} alt="Greenspot" />
+        <a href="/"><img src={logo} alt="Greenspot" /></a>
     </nav>
   );
 }

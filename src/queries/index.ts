@@ -1,4 +1,4 @@
-import { Restaurant } from "./restaurant";
-import { City } from "./city";
+import { RestaurantMethods, getRestaurantQuery } from "./restaurant";
+import { CityMethods, getCityQuery } from "./city";
 
-export { Restaurant, City }
+export { RestaurantMethods, getRestaurantQuery, CityMethods, getCityQuery }

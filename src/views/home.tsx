@@ -4,13 +4,16 @@ import { BusinessCard, CityCard } from "kiwi-design-system";
 import { getSanityImageUrl } from "../sanity-images";
 import { Header, Carousel, Section } from "../components";
 import { useFetchData } from "../hooks/useFetchData";
-import { Restaurant, City } from "../queries";
+import { RestaurantMethods, getRestaurantQuery, CityMethods, getCityQuery } from "../queries";
+import { Business, City } from "../types";
 
 export const Home = () => {
-  const restaurants = useFetchData(Restaurant.GetRestaurants);
-  const cities = useFetchData(City.GetCities);
+  const getRestaurants = getRestaurantQuery(RestaurantMethods.GetRestaurants);
+  const restaurants: Business[] = useFetchData(getRestaurants);
+  const getCities = getCityQuery(CityMethods.GetCities);
+  const cities: City[] = useFetchData(getCities);
 
-  const restaurantCards = restaurants.map((restaurant, i) => (
+  const restaurantCards = restaurants ? restaurants.map((restaurant, i) => (
     <Link to={`/business/${restaurant.url}`}>
       <BusinessCard
         key={i}
@@ -20,9 +23,9 @@ export const Home = () => {
         image={getSanityImageUrl(restaurant.coverImage)}
       />
     </Link>
-  ));
+  )) : [];
 
-  const cityCards = cities.map((city, i) => (
+  const cityCards = cities ? cities.map((city, i) => (
     <Link to={`/cities/${city.cityName}`}>
       <CityCard
         key={i}
@@ -31,7 +34,7 @@ export const Home = () => {
         image={getSanityImageUrl(city.coverImage)}
       />
     </Link>
-  ));
+  )) : [];
 
   const restaurantsBps = {
     768: {
