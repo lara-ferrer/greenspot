@@ -12,8 +12,6 @@ export const BusinessPage = () => {
   const business: Business = useFetchData(getBusinessByUrl);
 
   return (
-    <main>
-      <h2>{business && business[0].name}</h2>
-    </main>
+    <h2>{business && business[0].name}</h2>
   );
 }

@@ -10,13 +10,15 @@ export const App = () => {
     <BrowserRouter>
       <div className="grsp">
         <Menu />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/business" element={<BusinessLanding />} />
-          <Route path="/business/:businessUrl" element={<BusinessPage />} />
-          <Route path="/cities" element={<CitiesLanding />} />
-          <Route path="/cities/:cityName" element={<CityPage />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/business" element={<BusinessLanding />} />
+            <Route path="/business/:businessUrl" element={<BusinessPage />} />
+            <Route path="/cities" element={<CitiesLanding />} />
+            <Route path="/cities/:cityName" element={<CityPage />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </BrowserRouter>
