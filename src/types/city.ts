@@ -1,3 +1,5 @@
 export type City = {
-    name: string;
+    cityName: string;
+    coverImage: string;
+    country: string;
 }

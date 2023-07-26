@@ -19,6 +19,6 @@ export const getCityQuery = (query: CityMethods, {cityName, cityRef}: GetCityQue
     }
 
     if (query === CityMethods.GetBusinesses) {
-        return ` *[_type == 'restaurant' && city._ref == '${cityRef}']`;
+        return `*[_type == 'restaurant' && city._ref == '${cityRef}']`;
     }
 }

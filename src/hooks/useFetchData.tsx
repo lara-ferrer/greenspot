@@ -6,7 +6,7 @@ export const useFetchData = (groqQuery: string) => {
 
   useEffect(() => {
     client.fetch(groqQuery)
-    .then((data) => setData(data))
+    .then((data: any) => setData(data))
     .catch(console.error);
   }, [groqQuery]);
 

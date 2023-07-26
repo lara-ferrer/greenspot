@@ -1,9 +1,9 @@
+import React from 'react';
 import '../styles/index.scss';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { BusinessCard } from "kiwi-design-system";
-import { Layout } from '../components';
-import React from 'react';
+import { CityHeader, Layout } from '../components';
 import { useFetchData } from '../hooks/useFetchData';
 import { getCityQuery, CityMethods } from '../queries';
 import { City } from '../types/city';
@@ -13,7 +13,7 @@ import { Bussiness } from '../types/business';
 export const CityPage = () => {
   const { cityName } = useParams();
 
-  const getCityByName = getCityQuery(CityMethods.GetCityByName, {cityName});
+  const getCityByName = getCityQuery(CityMethods.GetCityByName, { cityName });
   const city: City = useFetchData(getCityByName);
 
   const getBusinesses = city && getCityQuery(CityMethods.GetBusinesses, {cityRef: city[0]._id});
@@ -31,9 +31,11 @@ export const CityPage = () => {
     </Link>
   )) : [];
 
+  const image = city && getSanityImageUrl(city[0].coverImage);
+
   return (
     <>
-      <h2>{city && city[0].cityName}</h2>
+      <CityHeader image={image} title={city && city[0].cityName} />
       <Layout numberOfColumns={2}>
         <p>Barra de filtros</p>
         <div className="d-grid">
