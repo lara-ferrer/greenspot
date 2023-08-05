@@ -1,5 +1,4 @@
 import React from 'react';
-import './section.scss';
 import '../../styles/index.scss';
 import SectionTitle from '../section-title/SectionTitle';
 

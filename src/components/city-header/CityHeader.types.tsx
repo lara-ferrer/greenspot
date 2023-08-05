@@ -1,4 +1,4 @@
 export type CityHeaderProps = {
-  title: string;
+  name: string;
   image?: string;
 };

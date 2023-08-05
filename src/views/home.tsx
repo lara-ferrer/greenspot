@@ -11,10 +11,12 @@ import {
   getCityQuery,
 } from "../queries";
 import { Business, City } from "../types";
+import { businessBps, cityBps } from "../constants/carousel-breakpoints";
 
 export const Home = () => {
   const getRestaurants = getRestaurantQuery(RestaurantMethods.GetRestaurants);
   const restaurants: Business[] = useFetchData(getRestaurants);
+
   const getCities = getCityQuery(CityMethods.GetCities, {});
   const cities: City[] = useFetchData(getCities);
 
@@ -45,43 +47,13 @@ export const Home = () => {
       ))
     : [];
 
-  const restaurantsBps = {
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 50,
-    },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 100,
-    },
-    1920: {
-      slidesPerView: 6,
-      spaceBetween: 20,
-    },
-  };
-
-  const cityBps = {
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 50,
-    },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 100,
-    },
-    1920: {
-      slidesPerView: 6,
-      spaceBetween: 200,
-    },
-  };
-
   return (
     <>
       <Header />
       <Section title="Últimos negocios añadidos" link="cities">
         <Carousel
           carouselItems={restaurantCards}
-          breakpoints={restaurantsBps}
+          breakpoints={businessBps}
         />
       </Section>
       <Section

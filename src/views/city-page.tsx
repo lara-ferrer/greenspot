@@ -3,12 +3,13 @@ import '../styles/index.scss';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { BusinessCard } from "kiwi-design-system";
-import { CityHeader, Layout } from '../components';
+import { Carousel, CityHeader, Layout, Section } from '../components';
 import { useFetchData } from '../hooks/useFetchData';
 import { getCityQuery, CityMethods } from '../queries';
 import { City } from '../types/city';
 import { getSanityImageUrl } from "../sanity-images";
-import { Bussiness } from '../types/business';
+import { Business } from '../types/business';
+import { businessBps } from '../constants/carousel-breakpoints';
 
 export const CityPage = () => {
   const { cityName } = useParams();
@@ -16,10 +17,10 @@ export const CityPage = () => {
   const getCityByName = getCityQuery(CityMethods.GetCityByName, { cityName });
   const city: City = useFetchData(getCityByName);
 
-  const getBusinesses = city && getCityQuery(CityMethods.GetBusinesses, {cityRef: city[0]._id});
-  const businesses: Bussiness[] = useFetchData(getBusinesses);
+  const getCityBusinesses = city && getCityQuery(CityMethods.GetBusinesses, {cityRef: city[0]._id});
+  const cityBusinesses: Business[] = useFetchData(getCityBusinesses);
 
-  const businessCards = businesses ? businesses.map((business, i) => (
+  const cityBusinessesCards = cityBusinesses ? cityBusinesses.map((business, i) => (
     <Link to={`/business/${business.url}`}>
       <BusinessCard
         key={i}
@@ -35,13 +36,22 @@ export const CityPage = () => {
 
   return (
     <>
-      <CityHeader image={image} title={city && city[0].cityName} />
+      <CityHeader image={image} name={city && city[0].cityName} />
       <Layout numberOfColumns={2}>
-        <p>Barra de filtros</p>
-        <div className="d-grid">
-          {businessCards}
+        <div>
+          <h2>Descubre {cityName}</h2>
+          <p>Lorem ipsum</p>
+        </div>
+        <div className="align-right">
+          <img src={image} alt={cityName} className="w-100" />
         </div>
       </Layout>
+      <Section title={`Los mejores restaurantes en ${cityName}`} link="cities">
+        <Carousel
+          carouselItems={cityBusinessesCards}
+          breakpoints={businessBps}
+        />
+      </Section>
     </>
   );
 }

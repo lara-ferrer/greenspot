@@ -13,11 +13,14 @@ export const Layout = ({numberOfColumns, children}: LayoutProps) => {
                 return null;
         }
     }
-    const twoColumns = children.length > 1 && children.flatMap((child, i) => <div className={getColumnClassnames(i)}key={i}>{child}</div>);
+    const columns = 
+        children.length > 1 ? 
+            children.flatMap((child, i) => <div className={getColumnClassnames(i)}key={i}>{child}</div>)
+        : children;
 
     return (
-        <div className={`grsp-layout grsp-layout--${numberOfColumns}`}>
-            {twoColumns}
-        </div>
+        <section className={`grsp-layout grsp-layout--${numberOfColumns}`}>
+            {columns}
+        </section>
     )
 }

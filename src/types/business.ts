@@ -1,4 +1,4 @@
-export type Bussiness = {
+export type Business = {
     name: string;
     url: string;
     address: string;

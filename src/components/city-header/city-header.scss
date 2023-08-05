@@ -19,9 +19,17 @@
   &__content {
     position: relative;
     z-index: 2;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__title {
     color: var(--kiwi-core-white);
+  }
+
+  &__links {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
   }
 }
