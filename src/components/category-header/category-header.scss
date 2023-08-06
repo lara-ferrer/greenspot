@@ -1,7 +1,16 @@
+:root {
+    --kiwi-breadcrumbs-color: var(--kiwi-core-white);
+    --kiwi-breadcrumbs-active-color: var(--kiwi-core-warm-100);
+}
+
 .grsp-category-header {
     background-color: #89DF8B;
 
     &__title {
         color: #fff;
+        margin-top: 24px;
+        &:first-letter {
+            text-transform: uppercase;
+        }
     }
 }

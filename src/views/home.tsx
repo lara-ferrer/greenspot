@@ -42,6 +42,8 @@ export const Home = () => {
             city={city.cityName}
             country={city.country}
             image={getSanityImageUrl(city.coverImage)}
+            businessCount={3}
+            businessName="restaurantes"
           />
         </Link>
       ))

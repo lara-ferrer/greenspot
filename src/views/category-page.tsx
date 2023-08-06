@@ -1,7 +1,7 @@
 import React from "react";
-import { Carousel, Layout } from "../components";
+import { Carousel, FilterBar, Layout } from "../components";
 import { CategoryHeader } from "../components";
-import { BusinessCard, Range } from "kiwi-design-system";
+import { BusinessCard, Checkbox } from "kiwi-design-system";
 import { Link, useParams } from "react-router-dom";
 import { useFetchData } from "../hooks/useFetchData";
 import { getCityQuery, CityMethods } from "../queries";
@@ -38,10 +38,7 @@ export const CategoryPage = () => {
     <>
       <CategoryHeader />
       <Layout numberOfColumns={2}>
-        <div className="grsp-filter-bar">
-          <h4>Filtrar por precio</h4>
-          <Range />
-        </div>
+        <FilterBar />
         <div>
           <h2>Últimos añadidos</h2>
           <Carousel
