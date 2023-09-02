@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
-import { BusinessCard, CityCard } from "kiwi-design-system";
+import { BusinessCard } from "kiwi-design-system";
 import { getSanityImageUrl } from "../sanity-images";
 import { Header, Carousel, Section } from "../components";
 import { useFetchData } from "../hooks/useFetchData";
@@ -12,6 +12,8 @@ import {
 } from "../queries";
 import { Business, City } from "../types";
 import { businessBps, cityBps } from "../constants/carousel-breakpoints";
+import { CityCard } from "../components/molecules";
+import { Loading } from "../components/atoms";
 
 export const Home = () => {
   const getRestaurants = getRestaurantQuery(RestaurantMethods.GetRestaurants);
@@ -36,16 +38,13 @@ export const Home = () => {
 
   const cityCards = cities
     ? cities.map((city, i) => (
-        <Link to={`/cities/${city.cityName}`}>
-          <CityCard
-            key={i}
-            city={city.cityName}
-            country={city.country}
-            image={getSanityImageUrl(city.coverImage)}
-            businessCount={3}
-            businessName="restaurantes"
-          />
-        </Link>
+        <CityCard
+          key={i}
+          cityName={city.cityName}
+          country={city.country}
+          coverImage={city.coverImage}
+          businessType="restaurantes"
+        />
       ))
     : [];
 
@@ -53,16 +52,15 @@ export const Home = () => {
     <>
       <Header />
       <Section title="Últimos negocios añadidos" link="cities">
-        <Carousel
-          carouselItems={restaurantCards}
-          breakpoints={businessBps}
-        />
+        <Carousel carouselItems={restaurantCards} breakpoints={businessBps} />
       </Section>
       <Section
         title="Ciudades comprometidas con la revolución verde"
         link="business"
       >
-        <Carousel carouselItems={cityCards} breakpoints={cityBps} />
+        <Suspense fallback={<Loading />}>
+          <Carousel carouselItems={cityCards} breakpoints={cityBps} />
+        </Suspense>
       </Section>
     </>
   );
