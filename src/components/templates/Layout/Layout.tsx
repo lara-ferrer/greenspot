@@ -1,6 +1,6 @@
 import React from "react"
-import { LayoutProps } from "./Layout.types"
 import './layout.scss';
+import { LayoutProps } from "./Layout.types";
 
 export const Layout = ({numberOfColumns, children}: LayoutProps) => {
     const getColumnClassnames = (i) => {

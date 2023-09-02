@@ -1,14 +1,13 @@
 import React from "react";
-import { Carousel, FilterBar, Layout } from "../components";
-import { CategoryHeader } from "../components";
-import { BusinessCard, Checkbox } from "kiwi-design-system";
+import { BusinessCard } from "kiwi-design-system";
 import { Link, useParams } from "react-router-dom";
 import { useFetchData } from "../hooks/useFetchData";
 import { getCityQuery, CityMethods } from "../queries";
-import { Business } from "../types/business";
-import { City } from "../types/city";
+import { Business, City } from "../types";
 import { getSanityImageUrl } from "../sanity-images";
 import { businessBps } from "../constants/carousel-breakpoints";
+import { Carousel, CategoryHeader, FilterBar } from "../components/organisms";
+import { Layout } from "../components/templates";
 
 export const CategoryPage = () => {
   const { cityName } = useParams();

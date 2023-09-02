@@ -3,13 +3,14 @@ import '../styles/index.scss';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { BusinessCard } from "kiwi-design-system";
-import { Carousel, CityHeader, Layout, Section } from '../components';
 import { useFetchData } from '../hooks/useFetchData';
 import { getCityQuery, CityMethods } from '../queries';
 import { City } from '../types/city';
 import { getSanityImageUrl } from "../sanity-images";
 import { Business } from '../types/business';
 import { businessBps } from '../constants/carousel-breakpoints';
+import { Carousel, CityHeader, Section } from '../components/organisms';
+import { Layout } from '../components/templates';
 
 export const CityPage = () => {
   const { cityName } = useParams();

@@ -1,9 +1,9 @@
 import React from 'react';
-import './header.scss';
-import '../../styles/index.scss';
 import { Searcher } from 'kiwi-design-system';
+import './main-header.scss';
+import '../../../../styles/index.scss';
 
-export const Header = () => {
+export const MainHeader = () => {
   return (
     <section className="grsp__header">
       <div className="grsp__header__container">

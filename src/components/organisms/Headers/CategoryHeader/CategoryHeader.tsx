@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "./category-header.scss";
 import { Breadcrumbs } from "kiwi-design-system";
+import "./category-header.scss";
 
 export const CategoryHeader = () => {
   const { cityName, categoryName } = useParams();

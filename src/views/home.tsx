@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
 import { BusinessCard } from "kiwi-design-system";
 import { getSanityImageUrl } from "../sanity-images";
-import { Header, Carousel, Section } from "../components";
 import { useFetchData } from "../hooks/useFetchData";
 import {
   RestaurantMethods,
@@ -12,8 +11,9 @@ import {
 } from "../queries";
 import { Business, City } from "../types";
 import { businessBps, cityBps } from "../constants/carousel-breakpoints";
-import { CityCard } from "../components/molecules";
 import { Loading } from "../components/atoms";
+import { CityCard } from "../components/molecules";
+import { MainHeader, Section, Carousel } from "../components/organisms";
 
 export const Home = () => {
   const getRestaurants = getRestaurantQuery(RestaurantMethods.GetRestaurants);
@@ -50,7 +50,7 @@ export const Home = () => {
 
   return (
     <>
-      <Header />
+      <MainHeader />
       <Section title="Últimos negocios añadidos" link="cities">
         <Carousel carouselItems={restaurantCards} breakpoints={businessBps} />
       </Section>

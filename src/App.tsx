@@ -1,9 +1,8 @@
 import React from 'react';import './app.scss';
 import './styles/index.scss';
-import Menu from './components/menu/Menu';
-import Footer from './components/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home, BusinessPage, CityPage, CategoryPage } from './views';
+import { Menu, Footer } from './components/organisms';
 
 export const App = () => {
   return (

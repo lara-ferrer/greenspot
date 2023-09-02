@@ -1,9 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "kiwi-design-system";
 import './section-title.scss';
-import '../../styles/index.scss';
+import '../../../styles/index.scss';
 
-const SectionTitle = ({ title, link }) => {
+export const SectionTitle = ({ title, link }) => {
   return (
     <div className="grsp__section__title">
       <h2>{ title }</h2>
@@ -13,5 +14,3 @@ const SectionTitle = ({ title, link }) => {
     </div>
   );
 }
-
-export default SectionTitle;
