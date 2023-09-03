@@ -1,27 +1,20 @@
 import React from "react";
 import { BusinessCard } from "kiwi-design-system";
 import { Link, useParams } from "react-router-dom";
-import { useFetchData } from "../hooks/useFetchData";
-import { getCityQuery, CityMethods } from "../queries";
-import { Business, City } from "../types";
 import { getSanityImageUrl } from "../sanity-images";
-import { businessBps } from "../constants/carousel-breakpoints";
-import { Carousel, CategoryHeader, FilterBar } from "../components/organisms";
-import { Layout } from "../components/templates";
+import { CategoryHeader, FilterBar } from "../components/organisms";
+import { Layout, Grid } from "../components/templates";
+import { useCityBusinesses } from "../hooks/useCityBusinesses";
+import { CategoryFilterProvider } from "../contexts/CategoryFilterContext/CategoryFilterProvider";
 
 export const CategoryPage = () => {
   const { cityName } = useParams();
 
-  const getCityByName = getCityQuery(CityMethods.GetCityByName, { cityName });
-  const city: City = useFetchData(getCityByName);
-
-  const getCityBusinesses =
-    city && getCityQuery(CityMethods.GetBusinesses, { cityRef: city[0]._id });
-  const cityBusinesses: Business[] = useFetchData(getCityBusinesses);
+  const cityBusinesses = useCityBusinesses(cityName);
 
   const cityBusinessesCards = cityBusinesses
     ? cityBusinesses.map((business, i) => (
-        <Link to={`/business/${business.url}`}>
+        <Link to={`/${cityName}/business/${business.url}`}>
           <BusinessCard
             key={i}
             title={business.name}
@@ -31,21 +24,20 @@ export const CategoryPage = () => {
           />
         </Link>
       ))
-    : [];
+    : <p>No se han encontrado negocios</p>;
 
   return (
-    <>
+    <CategoryFilterProvider>
       <CategoryHeader />
       <Layout numberOfColumns={2}>
         <FilterBar />
         <div>
           <h2>Últimos añadidos</h2>
-          <Carousel
-            carouselItems={cityBusinessesCards}
-            breakpoints={businessBps}
-          />
+          <Grid>
+            {cityBusinessesCards}
+          </Grid>
         </div>
       </Layout>
-    </>
+    </CategoryFilterProvider>
   );
 };

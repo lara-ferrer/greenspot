@@ -22,7 +22,7 @@ export const CityPage = () => {
   const cityBusinesses: Business[] = useFetchData(getCityBusinesses);
 
   const cityBusinessesCards = cityBusinesses ? cityBusinesses.map((business, i) => (
-    <Link to={`/business/${business.url}`}>
+    <Link to={`/${cityName}/business/${business.url}`}>
       <BusinessCard
         key={i}
         title={business.name}

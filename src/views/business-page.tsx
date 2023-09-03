@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { RestaurantMethods, getRestaurantQuery } from "../queries";
 import { useFetchData } from "../hooks/useFetchData";
 import { Business } from "../types";
+import { BusinessHeader } from '../components';
 
 export const BusinessPage = () => {
   const { businessUrl } = useParams();
@@ -12,6 +13,9 @@ export const BusinessPage = () => {
   const business: Business = useFetchData(getBusinessByUrl);
 
   return (
-    <h2>{business && business[0].name}</h2>
+    <>
+      <BusinessHeader businessName={business.name} />
+      <img src={business.coverImage} alt={business.name} className="w-100" />
+    </>
   );
 }

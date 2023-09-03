@@ -24,7 +24,7 @@ export const Home = () => {
 
   const restaurantCards = restaurants
     ? restaurants.map((restaurant, i) => (
-        <Link to={`/business/${restaurant.url}`}>
+        <Link to={`/zaragoza/business/${restaurant.url}`}>
           <BusinessCard
             key={i}
             title={restaurant.name}
