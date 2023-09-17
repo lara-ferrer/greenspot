@@ -15,10 +15,10 @@ export const getCityQuery = (query: CityMethods, {cityName, cityRef}: GetCityQue
     }
 
     if (query === CityMethods.GetCityByName) {
-        return `*[_type == 'city' && cityName == '${cityName}']`
+        return `{ "cities": *[_type == 'city' && cityName == '${cityName}'] }`
     }
 
     if (query === CityMethods.GetBusinesses) {
-        return `*[_type == 'restaurant' && city._ref == '${cityRef}']`;
+        return `{ "businesses": *[_type == 'restaurant' && city._ref == '${cityRef}'] }`;
     }
 }

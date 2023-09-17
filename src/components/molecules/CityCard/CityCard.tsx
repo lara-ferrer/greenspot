@@ -12,7 +12,7 @@ export const CityCard = ({
   coverImage,
   businessType,
 }: City) => {
-  const cityBusinesses = useCityBusinesses(cityName);
+  // const cityBusinesses = useCityBusinesses(cityName);
 
   return (
     <Suspense fallback={<Loading />}>
@@ -21,7 +21,7 @@ export const CityCard = ({
           city={cityName}
           country={country}
           image={getSanityImageUrl(coverImage)}
-          businessCount={cityBusinesses && cityBusinesses.length}
+          businessCount={1}
           businessName={businessType}
         />
       </Link>
