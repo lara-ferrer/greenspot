@@ -9,7 +9,7 @@ export const getRestaurantQuery = (query: RestaurantMethods, restaurantUrl?: str
     }
 
     if (query === RestaurantMethods.GetRestaurantByUrl) {
-        return `*[_type == 'restaurant' && url == '${restaurantUrl}']`
+        return `{ "business": *[_type == 'restaurant' && url == '${restaurantUrl}'] }`
     }
 
     return null;

@@ -4,7 +4,7 @@ import "./filter-bar.scss";
 import { useCategoryFilterContext } from "../../../contexts/CategoryFilterContext/CategoryFilterContext";
 
 export const FilterBar = () => {
-  const { categoryFilters, addFilter, removeFilter } = useCategoryFilterContext();
+  const { addFilter, removeFilter } = useCategoryFilterContext();
 
   const handleFilterClick = (e: Event) => {
     const { name, checked } = e.target as HTMLInputElement;

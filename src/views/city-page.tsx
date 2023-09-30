@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/index.scss';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { BusinessCard } from "kiwi-design-system";
-import { useFetchData } from '../hooks/useFetchData';
-import { getCityQuery, CityMethods } from '../queries';
-import { City } from '../types/city';
 import { getSanityImageUrl } from "../sanity-images";
 import { Business } from '../types/business';
 import { businessBps } from '../constants/carousel-breakpoints';
 import { Carousel, CityHeader, Section } from '../components/organisms';
 import { Layout } from '../components/templates';
+import { getCityBusinesses } from '../api/getCityBusinesses';
+import { City } from '../types';
+import { getCity } from '../api/getCity';
 
 export const CityPage = () => {
   const { cityName } = useParams();
+  const [city, setCity] = useState<City>();
+  const [cityBusinesses, setCityBusinesses] = useState<Business[]>();
 
-  const getCityByName = getCityQuery(CityMethods.GetCityByName, { cityName });
-  const city: City = useFetchData(getCityByName);
-
-  const getCityBusinesses = city && getCityQuery(CityMethods.GetBusinesses, {cityRef: city[0]._id});
-  const cityBusinesses: Business[] = useFetchData(getCityBusinesses);
+  useEffect(() => {
+    getCity(cityName).then((data) => setCity(data));
+    getCityBusinesses(cityName).then((data) => setCityBusinesses(data));
+  }, []);
 
   const cityBusinessesCards = cityBusinesses ? cityBusinesses.map((business, i) => (
     <Link to={`/${cityName}/business/${business.url}`}>

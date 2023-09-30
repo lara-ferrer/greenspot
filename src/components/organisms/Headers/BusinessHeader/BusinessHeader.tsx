@@ -29,9 +29,6 @@ export const BusinessHeader = ({ businessName }: BusinessHeaderProps) => {
   return (
     <>
       <HeaderTemplate breadcrumbLinks={breadcrumbLinks} title={businessName} />
-      <Layout numberOfColumns={1}>
-        <h2>cosas</h2>
-      </Layout>
     </>
   );
 };

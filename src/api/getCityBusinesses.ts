@@ -3,7 +3,10 @@ import { client } from "../sanity-client";
 
 export const getCityBusinesses = async (cityName: string) => {
   const getCityByName = getCityQuery(CityMethods.GetCityByName, { cityName });
-  const { city } = await client.fetch(getCityByName);
+  const { cities } = await client.fetch(getCityByName);
 
-  return city;
+  const getCityBusinesses = getCityQuery(CityMethods.GetBusinesses, { cityRef: cities[0]._id });
+  const { businesses } = await client.fetch(getCityBusinesses);
+
+  return businesses;
 };

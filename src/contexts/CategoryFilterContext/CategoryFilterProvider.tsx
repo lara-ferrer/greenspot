@@ -15,10 +15,9 @@ export const CategoryFilterProvider = ({ children }: any) => {
   }
 
   const removeFilter = (name) => {
-    const matchingFilter = name && categoryFilters.find((filter) => filter === name);
-    const matchingFilterIndex = matchingFilter && categoryFilters.indexOf(matchingFilter);
+    const matchingFilterIndex = categoryFilters.indexOf(name) + 1;
 
-    matchingFilter && setCategoryFilters(categoryFilters.splice(matchingFilterIndex, 1))
+    setCategoryFilters(categoryFilters.splice(matchingFilterIndex, 1));
   }
 
   const provider = {

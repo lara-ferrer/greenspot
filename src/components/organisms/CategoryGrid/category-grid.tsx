@@ -13,7 +13,7 @@ export const CategoryGrid = () => {
 
   useEffect(() => {
     getCategoryBusinesses(cityName).then((data) => setBusinesses(data));
-  });
+  }, []);
 
   const filteredBusinesses: Business[] = useFilteredBusinesses(businesses);
 
@@ -31,9 +31,6 @@ export const CategoryGrid = () => {
     ));
 
   return (
-    <>
-      <h2>Últimos añadidos</h2>
-      <Grid>{businessesCards}</Grid>
-    </>
+    <Grid>{businessesCards}</Grid>
   );
 };
