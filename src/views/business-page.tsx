@@ -7,6 +7,7 @@ import { getBusiness } from '../api/getBusiness';
 import { getSanityImageUrl } from "../sanity-images";
 import { GridGallery } from '../components/organisms/GridGallery/GridGallery';
 import './business-page.scss';
+import { BusinessMap } from '../components/molecules/BusinessMap/BusinessMap';
 
 export const BusinessPage = () => {
   const { businessUrl } = useParams();
@@ -21,7 +22,7 @@ export const BusinessPage = () => {
     <>
       <BusinessHeader businessName={business.name} />
       <Layout numberOfColumns={2}>
-        <p>text</p>
+        <BusinessMap coordinates={business.coordinates} />
         <div className='grsp-business-page__gallery'>
           <GridGallery images={[ business.coverImage ]} />
         </div>

@@ -13,44 +13,22 @@ type GridGalleryProps = {
 
 export const GridGallery = ({ images }: GridGalleryProps) => {
   return (
-    <Swiper
-      slidesPerView={3}
-      grid={{
-        rows: 2,
-      }}
-      spaceBetween={30}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Grid, Pagination]}
-    >
-      <SwiperSlide className="first-image">
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={getSanityImageUrl(images[0])} />
-      </SwiperSlide>
-    </Swiper>
+    <div className="grsp-grid-gallery">
+      <Swiper
+        slidesPerView={3}
+        grid={{
+          rows: 2,
+        }}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Grid, Pagination]}
+      >
+        <SwiperSlide className="first-image">
+          <img src={getSanityImageUrl(images[0])} />
+        </SwiperSlide>
+      </Swiper>
+    </div>
   );
 };
