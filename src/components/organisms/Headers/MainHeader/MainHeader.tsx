@@ -1,7 +1,7 @@
 import React from 'react';
-import { Searcher } from 'kiwi-design-system';
 import './main-header.scss';
 import '../../../../styles/index.scss';
+import { Searcher } from '../../../molecules/Searcher/Searcher';
 
 export const MainHeader = () => {
   return (
