@@ -35,7 +35,7 @@ const CityPage = () => {
     </Link>
   )) : [];
 
-  const image = city && getSanityImageUrl(city[0].coverImage);
+  const image = city && getSanityImageUrl(city.coverImage);
 
   return (
     <Suspense fallback={ <Loading/> }>

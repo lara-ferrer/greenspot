@@ -21,7 +21,6 @@ export const BusinessHeader = ({ businessName }: BusinessHeaderProps) => {
     },
     {
       title: businessName,
-      url: `/cities/${cityName}/${businessName}`,
       isActive: true
     }
   ]
