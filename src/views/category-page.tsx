@@ -4,9 +4,9 @@ import { Layout } from "../components/templates";
 import { CategoryGrid } from "../components/organisms/CategoryGrid/category-grid";
 import { Loading } from "../components";
 
-export const CategoryPage = () => {
+const CategoryPage = () => {
   return (
-    <>
+    <Suspense fallback={ <Loading/> }>
       <CategoryHeader />
       <Layout numberOfColumns={2}>
         <FilterBar />
@@ -14,6 +14,8 @@ export const CategoryPage = () => {
           <CategoryGrid />
         </Suspense>
       </Layout>
-    </>
+    </Suspense>
   );
 };
+
+export default CategoryPage;

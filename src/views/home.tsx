@@ -15,7 +15,7 @@ import { Loading } from "../components/atoms";
 import { CityCard } from "../components/molecules";
 import { MainHeader, Section, Carousel } from "../components/organisms";
 
-export const Home = () => {
+const Home = () => {
   const getRestaurants = getRestaurantQuery(RestaurantMethods.GetRestaurants);
   const restaurants: Business[] = useFetchData(getRestaurants);
 
@@ -49,7 +49,7 @@ export const Home = () => {
     : [];
 
   return (
-    <>
+    <Suspense fallback={ <Loading/> }>
       <MainHeader />
       <Section title="Últimos negocios añadidos" link="cities">
         <Carousel carouselItems={restaurantCards} breakpoints={businessBps} />
@@ -62,6 +62,8 @@ export const Home = () => {
           <Carousel carouselItems={cityCards} breakpoints={cityBps} />
         </Suspense>
       </Section>
-    </>
+    </Suspense>
   );
 };
+
+export default Home;

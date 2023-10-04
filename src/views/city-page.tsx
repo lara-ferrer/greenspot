@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import '../styles/index.scss';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
@@ -11,8 +11,9 @@ import { Layout } from '../components/templates';
 import { getCityBusinesses } from '../api/getCityBusinesses';
 import { City } from '../types';
 import { getCity } from '../api/getCity';
+import { Loading } from '../components';
 
-export const CityPage = () => {
+const CityPage = () => {
   const { cityName } = useParams();
   const [city, setCity] = useState<City>();
   const [cityBusinesses, setCityBusinesses] = useState<Business[]>();
@@ -37,8 +38,8 @@ export const CityPage = () => {
   const image = city && getSanityImageUrl(city[0].coverImage);
 
   return (
-    <>
-      <CityHeader image={image} name={city && city[0].cityName} />
+    <Suspense fallback={ <Loading/> }>
+      <CityHeader image={image} name={cityName} />
       <Layout numberOfColumns={2}>
         <div>
           <h2>Descubre {cityName}</h2>
@@ -54,6 +55,8 @@ export const CityPage = () => {
           breakpoints={businessBps}
         />
       </Section>
-    </>
+    </Suspense>
   );
 }
+
+export default CityPage;
