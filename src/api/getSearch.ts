@@ -5,5 +5,5 @@ export const getSearch = async (searchString: string) => {
   const searchQuery = getSearchQuery(searchString);
   const { searchResults } = await client.fetch(searchQuery);
 
-  return searchResults[0];
+  return searchResults;
 };
