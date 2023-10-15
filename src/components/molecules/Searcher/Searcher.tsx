@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { Searcher as KiwiSearcher } from "kiwi-design-system";
 import { getSearch } from "../../../api/getSearch";
 import { SearchResults } from "../../../types/search-results";
@@ -13,11 +12,13 @@ export const Searcher = ({ placeholder }: SearcherProps) => {
   const [searchItem, setSearchItem] = useState<string>();
   const [searchResults, setSearchResults] = useState<SearchResults>();
 
-  const handleInput = (e: any) => {
-    const { value } = e.target;
+  const handleKeyDown = (e: any) => {
+    if (e.key === 'Enter') {
+      const { value } = e.target;
 
-    setSearchItem(value);
-  };
+      setSearchItem(value);
+    }
+  }
 
   useEffect(() => {
     if (searchItem && searchItem.length > 5) {
@@ -35,14 +36,10 @@ export const Searcher = ({ placeholder }: SearcherProps) => {
   }, [searchItem]);
 
   return (
-    <>
-      {searchResults &&
-        createPortal(<div className="grsp-searcher" />, document.getElementsByClassName('grsp')[0])}
-      <KiwiSearcher
-        placeholder={placeholder}
-        results={searchResults}
-        onInput={(e) => handleInput(e)}
-      />
-    </>
+    <KiwiSearcher
+      placeholder={placeholder}
+      results={searchResults}
+      onKeyDown={(e) => handleKeyDown(e)}
+    />
   );
 };
