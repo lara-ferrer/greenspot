@@ -22,7 +22,7 @@
     "react-scripts": "5.0.1",
     "swiper": "^10.0.4",
     "typescript": "^5.1.6",
-    "web-vitals": "^2.1.4"
+    "kiwi-design-system": "^1.0.0-alpha"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,12 +30,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+
   "browserslist": {
     "production": [
       ">0.2%",
