@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+      "outDir": "./dist/",
+      "sourceMap": true,
+      "noImplicitAny": false,
+      "module": "commonjs",
+      "target": "es6",
+      "jsx": "react",
+      "esModuleInterop": true,
+      "moduleResolution": "Node",
+      "paths": {
+        "react": ["./node-modules/react"],
+        "react-dom": ["./node-modules/react-dom"],
+        "react-scripts": ["./node-modules/react-scripts"],
+      }
+  }
+}

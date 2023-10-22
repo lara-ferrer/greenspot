@@ -1,0 +1,15 @@
+.grsp-layout {
+    display: flex;
+
+    &__first {
+        width: 30%;
+    }
+
+    &__second {
+        width: 70%;
+    }
+
+    &--2 {
+        gap: 3em;
+    }
+}

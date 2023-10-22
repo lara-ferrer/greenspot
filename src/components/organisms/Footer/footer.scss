@@ -1,0 +1,28 @@
+.grsp-footer {
+    background-color: var(--kiwi-core-green-500);
+    padding: 100px 40px;
+    display: flex;
+    gap: 80px;
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__link {
+        color: var(--kiwi-core-white);
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+
+    &__brand {
+        align-self: center;
+    }
+
+    .kiwi-icon {
+        --kiwi-icon-color: var(--kiwi-core-white);
+        --kiwi-icon-fs: var(--kiwi-core-fs-16);
+    }
+}
