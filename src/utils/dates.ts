@@ -1,0 +1,1 @@
+export const getFirstThreeLettersFromDay = (day: string) => day.slice(0, 3);

@@ -1,7 +1,4 @@
 import React, { Suspense } from "react";
-import { Link } from "react-router-dom";
-import { BusinessCard } from "kiwi-design-system";
-import { getSanityImageUrl } from "../sanity-images";
 import { useFetchData } from "../hooks/useFetchData";
 import {
   RestaurantMethods,
@@ -14,6 +11,7 @@ import { businessBps, cityBps } from "../constants/carousel-breakpoints";
 import { Loading } from "../components/atoms";
 import { CityCard } from "../components/molecules";
 import { MainHeader, Section, Carousel } from "../components/organisms";
+import { BusinessCard } from "../components/molecules/BusinessCard/BusinessCard";
 
 const Home = () => {
   const getRestaurants = getRestaurantQuery(RestaurantMethods.GetRestaurants);
@@ -24,32 +22,16 @@ const Home = () => {
 
   const restaurantCards = restaurants
     ? restaurants.map((restaurant, i) => (
-        <Link to={`/zaragoza/business/${restaurant.url}`}>
-          <BusinessCard
-            key={i}
-            title={restaurant.name}
-            address={restaurant.address}
-            categories={restaurant.categories}
-            image={getSanityImageUrl(restaurant.coverImage)}
-          />
-        </Link>
+        <BusinessCard key={i} business={restaurant} />
       ))
     : [];
 
   const cityCards = cities
-    ? cities.map((city, i) => (
-        <CityCard
-          key={i}
-          cityName={city.cityName}
-          country={city.country}
-          coverImage={city.coverImage}
-          businessType="restaurantes"
-        />
-      ))
+    ? cities.map((city, i) => <CityCard key={i} city={city} />)
     : [];
 
   return (
-    <Suspense fallback={ <Loading/> }>
+    <Suspense fallback={<Loading />}>
       <MainHeader />
       <Section title="Últimos negocios añadidos" link="cities">
         <Carousel carouselItems={restaurantCards} breakpoints={businessBps} />

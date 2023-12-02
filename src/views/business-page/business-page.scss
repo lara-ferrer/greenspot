@@ -1,5 +1,13 @@
 .grsp-business-page {
-    &__gallery {
-        height: 600px;
+    --grsp-layout-first-column-width: 70%;
+    --grsp-layout-second-column-width: 30%;
+
+    &__opening-day {
+        text-align: right;
+    };
+
+    &__opening-hours, &__address {
+        font-weight: 500;
+        color: var(--kiwi-core-neutral-400);
     }
 }

@@ -1,4 +1,5 @@
 import { Coordinates } from "./coordinates";
+import { Schedule } from "./schedule";
 
 export type Business = {
     name: string;
@@ -7,4 +8,5 @@ export type Business = {
     categories: any;
     coverImage: string;
     coordinates: Coordinates;
+    schedule: Schedule;
 }
