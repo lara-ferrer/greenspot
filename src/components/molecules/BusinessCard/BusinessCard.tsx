@@ -11,7 +11,8 @@ export const BusinessCard = ({ business }: BusinessCardProps) => {
     url,
     address,
     categories,
-    coverImage
+    coverImage,
+    schedule
   } = business;
 
   /* const openTime = () => {

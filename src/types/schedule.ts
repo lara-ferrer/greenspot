@@ -1,4 +1,4 @@
-export type Schedule = Array<OpeningDay>;
+export type Schedule = OpeningDay[];
 
 type OpeningDay = {
     openingDay: string,

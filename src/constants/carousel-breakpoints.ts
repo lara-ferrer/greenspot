@@ -27,3 +27,18 @@ export const cityBps = {
     spaceBetween: 200,
   },
 };
+
+export const businessGalleryBps = {
+  768: {
+    slidesPerView: 2,
+    spaceBetween: 50,
+  },
+  1024: {
+    slidesPerView: 3,
+    spaceBetween: 100,
+  },
+  1920: {
+    slidesPerView: 4,
+    spaceBetween: 300,
+  },
+};

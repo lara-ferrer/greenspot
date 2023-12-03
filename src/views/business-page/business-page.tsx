@@ -7,7 +7,7 @@ import { BusinessHeader, Carousel, Layout, Loading } from "../../components";
 import { getBusiness } from "../../api/getBusiness";
 import { BusinessMap } from "../../components/molecules/BusinessMap/BusinessMap";
 import { getSanityImageUrl } from "../../sanity-images";
-import { cityBps } from "../../constants/carousel-breakpoints";
+import { businessGalleryBps } from "../../constants/carousel-breakpoints";
 import "./business-page.scss";
 
 const BusinessPage = () => {
@@ -17,6 +17,10 @@ const BusinessPage = () => {
   useEffect(() => {
     getBusiness(businessUrl).then((data) => setBusiness(data));
   }, []);
+
+  const businessImages = business && business.images.map((image) => 
+    <img src={getSanityImageUrl(image)} alt={business.name} className="grsp-business-page__image" key={image} />
+  );
 
   return (
     business && (
@@ -50,16 +54,11 @@ const BusinessPage = () => {
           <Layout numberOfColumns={1}>
             <div>
               <h3>Galería</h3>
-              <div className="grsp-business-page__gallery">
-                <Carousel carouselItems={[]} breakpoints={cityBps} />
-              </div>
             </div>
           </Layout>
-          <Layout numberOfColumns={1}>
-            <div>
-              <h3>Otros negocios cerca</h3>
-            </div>
-          </Layout>
+          <div className="grsp-business-page__gallery">
+            <Carousel carouselItems={businessImages} breakpoints={businessGalleryBps} />
+          </div>
         </div>
       </Suspense>
     )

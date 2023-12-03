@@ -1,11 +1,23 @@
 import React from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import L from "leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import { Coordinates } from "../../../types/coordinates";
 import "./business-map.scss";
+import icon from "../../../assets/icons/leaf.svg";
 
 type BusinessMapProps = {
   coordinates: Coordinates;
 };
+
+var locationIcon = L.icon({
+  iconUrl: icon,
+  iconSize: [80, 80],
+  iconAnchor: [32, 64],
+  popupAnchor: null,
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+});
 
 export const BusinessMap = ({ coordinates }: BusinessMapProps) => {
   return (
@@ -20,11 +32,10 @@ export const BusinessMap = ({ coordinates }: BusinessMapProps) => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[coordinates.lat, coordinates.lng]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+          <Marker
+            position={[coordinates.lat, coordinates.lng]}
+            icon={locationIcon}
+          />
         </MapContainer>
       </div>
     </>
