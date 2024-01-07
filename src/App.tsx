@@ -16,7 +16,13 @@ export const App = () => {
             <Menu />
             <main>
               <Routes>
-                {routes.map(({ path, Component }) => <Route path={ path } element={ <Component /> } />)}
+                {routes.map(({ path, Component }, i) => (
+                  <Route
+                    path={path}
+                    element={<Component />}
+                    key={`route-${i}`}
+                  />
+                ))}
               </Routes>
             </main>
             <Footer />

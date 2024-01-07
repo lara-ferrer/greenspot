@@ -22,10 +22,11 @@ export const Footer = () => {
       <div className="grsp-footer__column">
         <h4>Los mejores restaurantes green-friendly</h4>
         {cities &&
-          cities.map(({ cityName }) => (
+          cities.map(({ cityName }, i) => (
             <a
               className="grsp-footer__link"
               href={`/cities/${cityName}/restaurantes`}
+              key={`res-${i}`}
             >
               Restaurantes en {cityName}
             </a>
@@ -34,10 +35,11 @@ export const Footer = () => {
       <div className="grsp-footer__column">
         <h4>Los mejores restaurantes green-friendly</h4>
         {cities &&
-          cities.map(({ cityName }) => (
+          cities.map(({ cityName }, i) => (
             <a
               className="grsp-footer__link"
               href={`/cities/${cityName}/restaurantes`}
+              key={`rest-${i}`}
             >
               Restaurantes en {cityName}
             </a>
