@@ -3,12 +3,9 @@ import { Searcher as KiwiSearcher } from "kiwi-design-system";
 import { getSearch } from "../../../api/getSearch";
 import { SearchResults } from "../../../types/search-results";
 import "./searcher.scss";
+import { SearcherProps } from "./Searcher.types";
 
-type SearcherProps = {
-  placeholder: string;
-};
-
-export const Searcher = ({ placeholder }: SearcherProps) => {
+export const Searcher = ({ placeholder, onClear }: SearcherProps) => {
   const [searchItem, setSearchItem] = useState<string>();
   const [searchResults, setSearchResults] = useState<SearchResults>();
 
@@ -40,6 +37,8 @@ export const Searcher = ({ placeholder }: SearcherProps) => {
       placeholder={placeholder}
       results={searchResults}
       onKeyDown={(e) => handleKeyDown(e)}
+      isClearable={true}
+      onClear={onClear}
     />
   );
 };

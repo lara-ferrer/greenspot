@@ -8,3 +8,11 @@
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
 }
+
+.flex-d-row {
+    flex-direction: row;
+}
+
+.flex-d-column {
+    flex-direction: column;
+}

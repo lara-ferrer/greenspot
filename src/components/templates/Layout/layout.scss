@@ -11,6 +11,10 @@
         width: var(--grsp-layout-second-column-width);
     }
 
+    &--1 > div {
+        width: 100%;
+    }
+
     &--2 {
         gap: 3em;
     }

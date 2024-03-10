@@ -7,7 +7,7 @@ export const useCategoryFilterContext = () => {
   const categoryFilterContext = useContext(CategoryFilterContext);
 
   if (categoryFilterContext === undefined) {
-    throw new Error('useConfig can only be used in a ConfigProvider tree');
+    throw new Error('useCategoryFilterContext can only be used in a ConfigProvider tree');
   }
 
   return categoryFilterContext;

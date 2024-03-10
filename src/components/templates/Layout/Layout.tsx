@@ -2,7 +2,7 @@ import React from "react"
 import './layout.scss';
 import { LayoutProps } from "./Layout.types";
 
-export const Layout = ({numberOfColumns, children}: LayoutProps) => {
+export const Layout = ({numberOfColumns, children, className, direction}: LayoutProps) => {
     const getColumnClassnames = (i) => {
         switch(i) {
             case 0:
@@ -13,13 +13,16 @@ export const Layout = ({numberOfColumns, children}: LayoutProps) => {
                 return null;
         }
     }
+
     const columns = 
         children.length > 1 ? 
             children.flatMap((child, i) => <div className={getColumnClassnames(i)}key={i}>{child}</div>)
         : children;
+    
+    const getPositionClassname = direction === 'column' ? 'flex-d-column' : 'flex-d-row'
 
     return (
-        <section className={`grsp-layout grsp-layout--${numberOfColumns}`}>
+        <section className={`${className} ${getPositionClassname} grsp-layout grsp-layout--${numberOfColumns}`}>
             {columns}
         </section>
     )

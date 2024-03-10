@@ -1,10 +1,9 @@
 import path from path;
-import node from "file.node";
+
 
 module.exports = {
     entry: './src/App.tsx',
     target: "node",
-    externals: [nodeExternals()],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
