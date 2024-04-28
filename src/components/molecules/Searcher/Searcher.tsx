@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Searcher as KiwiSearcher } from "kiwi-design-system";
-import { getSearch } from "../../../api/getSearch";
+import { getSearch } from "../../../api/get-search";
 import { SearchResults } from "../../../types/search-results";
 import "./searcher.scss";
-import { SearcherProps } from "./Searcher.types";
+
+type SearcherProps = {
+  placeholder: string;
+  onClear?: () => void;
+};
 
 export const Searcher = ({ placeholder, onClear }: SearcherProps) => {
   const [searchItem, setSearchItem] = useState<string>();

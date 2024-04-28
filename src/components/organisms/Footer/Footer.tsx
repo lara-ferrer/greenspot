@@ -3,7 +3,7 @@ import "./footer.scss";
 import "../../../styles/index.scss";
 import logo from "../../../assets/brand/logo-white.svg";
 import { Icon } from "kiwi-design-system";
-import { useFetchData } from "../../../hooks/useFetchData";
+import { useFetchData } from "../../../hooks/use-fetch-data";
 import { getCityQuery, CityMethods } from "../../../api/queries";
 import { City } from "../../../types";
 

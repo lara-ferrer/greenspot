@@ -1,10 +1,10 @@
 import { LazyExoticComponent, lazy } from 'react';
 import { Route } from 'react-router-dom';
 
-const HomeComponent = lazy(() => import('./views/home'));
+const HomeComponent = lazy(() => import('./views/home/home'));
 const BusinessPageComponent = lazy(() => import('./views/business-page/business-page'));
-const CityPageComponent = lazy(() => import('./views/city-page'));
-const CategoryPageComponent = lazy(() => import('./views/category-page'));
+const CityPageComponent = lazy(() => import('./views/city-page/city-page'));
+const CategoryPageComponent = lazy(() => import('./views/category-page/category-page'));
 const UserPageComponent = lazy(() => import('./views/user-page'));
 
 type JSXComponent = () => JSX.Element;

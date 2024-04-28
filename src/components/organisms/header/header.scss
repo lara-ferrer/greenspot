@@ -1,0 +1,15 @@
+:root {
+    --kiwi-header-title-color: var(--kiwi-core-white);
+}
+
+.grsp-header {
+    background-color: #89DF8B;
+
+    &__title {
+        color: var(--kiwi-header-title-color);
+        margin-top: 24px;
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+}

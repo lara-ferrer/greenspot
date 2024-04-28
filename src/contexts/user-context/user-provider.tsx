@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { UserContext } from "./user-context";
-import { UserProfile } from "../../types/userProfile";
+import { UserProfile } from "../../types/user-profile";
 import axios from "axios";
 
 export type UserProvider = {

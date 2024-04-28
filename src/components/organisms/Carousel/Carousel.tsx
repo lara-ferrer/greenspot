@@ -2,7 +2,11 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
-import { CarouselProps } from "./Carousel.types";
+
+type CarouselProps = {
+  carouselItems: JSX.Element[];
+  breakpoints: any;
+};
 
 export const Carousel = ({ carouselItems, breakpoints }: CarouselProps) => {
   return (

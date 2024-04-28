@@ -1,15 +1,16 @@
 import React, { Suspense, useEffect, useState } from "react";
-import "../../styles/index.scss";
 import { useParams } from "react-router-dom";
 import { Business } from "../../types";
-import { BusinessHeader, Carousel, Layout, Loading } from "../../components";
+import { Carousel, Layout, Loading } from "../../components";
 import { getBusiness } from "../../api/get-business";
-import { BusinessMap } from "../../components/molecules/BusinessMap/BusinessMap";
+import { BusinessMap } from "../../components/molecules/business-map/business-map";
 import { getSanityImageUrl } from "../../sanity-images";
 import { businessGalleryBps } from "../../constants/carousel-breakpoints";
-import "./business-page.scss";
 import { Reviews } from "./components/reviews/reviews";
 import { OpeningHours } from "./components/opening-hours/opening-hours";
+import { BusinessHeader } from "./components/business-header/business-header";
+import "../../styles/index.scss";
+import "./business-page.scss";
 
 const BusinessPage = () => {
   const { businessUrl } = useParams();

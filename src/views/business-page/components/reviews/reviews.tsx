@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Layout } from "../../../../components/templates/Layout/Layout";
+import { Layout } from "../../../../components/templates/layout/layout";
 import { writeClient } from "../../../../sanity-client";
 import { ReviewsProps } from "./reviews.types";
 import { NoReviews } from "./no-reviews/no-reviews";
