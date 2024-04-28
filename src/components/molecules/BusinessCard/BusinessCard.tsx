@@ -11,39 +11,11 @@ export const BusinessCard = ({ business }: BusinessCardProps) => {
     url,
     address,
     categories,
-    coverImage,
-    schedule
+    coverImage
   } = business;
 
-  /* const openTime = () => {
-    if (openingDays) {
-      const firstDayOpen = openingDays[0];
-      const lastDayOpen = openingDays[openingDays.length - 1];
-
-      return `${getFirstThreeLettersFromDay(
-        firstDayOpen
-      )} - ${getFirstThreeLettersFromDay(lastDayOpen)} ${
-        openingHours.opening
-      }h - ${openingHours.closing}h`;
-    }
-
-    return "";
-  };
-
-  const isOpen = () => {
-    if (openingHours) {
-      const opening = new Date(openingHours.opening);
-      const closing = new Date(openingHours.closing).getTime();
-      const now = new Date().getTime();
-
-      return true;
-    }
-
-    return false;
-  }; */
-
   return (
-    <Link to={`/zaragoza/business/${url}`}>
+    <Link to={`/restaurantes/${url}`}>
       <KiwiBusinessCard
         title={name}
         address={address}

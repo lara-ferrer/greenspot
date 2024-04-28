@@ -1,11 +1,11 @@
 import React, { Suspense } from "react";
 import { useFetchData } from "../hooks/useFetchData";
 import {
-  RestaurantMethods,
-  getRestaurantQuery,
+  BusinessMethods,
+  getBusinessQuery,
   CityMethods,
   getCityQuery,
-} from "../queries";
+} from "../api/queries";
 import { Business, City } from "../types";
 import { businessBps, cityBps } from "../constants/carousel-breakpoints";
 import { Loading } from "../components/atoms";
@@ -14,7 +14,7 @@ import { MainHeader, Section, Carousel } from "../components/organisms";
 import { BusinessCard } from "../components/molecules/BusinessCard/BusinessCard";
 
 const Home = () => {
-  const getRestaurants = getRestaurantQuery(RestaurantMethods.GetRestaurants);
+  const getRestaurants = getBusinessQuery(BusinessMethods.GetBusinesses);
   const restaurants: Business[] = useFetchData(getRestaurants);
 
   const getCities = getCityQuery(CityMethods.GetCities, {});
@@ -33,12 +33,11 @@ const Home = () => {
   return (
     <Suspense fallback={<Loading />}>
       <MainHeader />
-      <Section title="Últimos negocios añadidos" link="cities">
+      <Section title="Últimos negocios añadidos">
         <Carousel carouselItems={restaurantCards} breakpoints={businessBps} />
       </Section>
       <Section
         title="Ciudades comprometidas con la revolución verde"
-        link="business"
       >
         <Suspense fallback={<Loading />}>
           <Carousel carouselItems={cityCards} breakpoints={cityBps} />

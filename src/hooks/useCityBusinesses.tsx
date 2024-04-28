@@ -1,4 +1,4 @@
-import { getCityQuery, CityMethods } from "../queries";
+import { getCityQuery, CityMethods } from "../api/queries";
 import { Business } from "../types/business";
 import { City } from "../types/city";
 import { useFetchData } from "./useFetchData";

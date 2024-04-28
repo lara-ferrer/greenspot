@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { Icon as KiwiIcon } from "kiwi-design-system";
+import { Icon as KiwiIcon, Button as KiwiButton } from "kiwi-design-system";
 import { Searcher } from "../../../molecules/Searcher/Searcher";
 import "./icons.scss";
-import { useUserContext } from "../../../../contexts/UserContext/UserContext";
+import { useLoginContext } from "../../../../contexts/login-context/login-context";
+import { useUserContext } from "../../../../contexts/user-context/user-context";
 
 export const Icons = () => {
   const [searcher, showSearcher] = useState(false);
   const [profileMenu, showProfileMenu] = useState(false);
   
-  const { userProfile, login, logOut } = useUserContext();
+  const { login } = useLoginContext();
+  const { userProfile } = useUserContext();
 
   return (
     <div className="grsp-menu-icons">
@@ -19,21 +21,10 @@ export const Icons = () => {
       ) : (
         <Searcher placeholder="Buscar..." onClear={() => showSearcher(false)}/>
       )}
-      <span className="c-pointer" onClick={() => showProfileMenu(true)}>
+      {!userProfile && <KiwiButton label="Iniciar sesión" onClick={() => login()} />}
+      {userProfile && <span className="c-pointer" onClick={() => showProfileMenu(true)}>
         <KiwiIcon name="user" />
-      </span>
-      {profileMenu && (
-        <nav className="grsp-menu-icons__submenu">
-          {!userProfile && <p onClick={() => login()}>Login</p>}
-          {userProfile && (
-            <>
-              <p>Hola {userProfile.given_name}!</p>
-              <p>Mi perfil</p>
-              <p onClick={logOut}>Log out</p>
-            </>
-          )}
-        </nav>
-      )}
+      </span>}
     </div>
   );
 };

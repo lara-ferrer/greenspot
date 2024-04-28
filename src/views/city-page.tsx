@@ -49,7 +49,7 @@ const CityPage = () => {
           <img src={image} alt={cityName} className="w-100" />
         </div>
       </Layout>
-      <Section title={`Los mejores restaurantes en ${cityName}`} link="cities">
+      <Section title={`Los mejores restaurantes en ${cityName}`}>
         <Carousel
           carouselItems={cityBusinessesCards}
           breakpoints={businessBps}

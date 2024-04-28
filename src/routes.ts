@@ -5,6 +5,7 @@ const HomeComponent = lazy(() => import('./views/home'));
 const BusinessPageComponent = lazy(() => import('./views/business-page/business-page'));
 const CityPageComponent = lazy(() => import('./views/city-page'));
 const CategoryPageComponent = lazy(() => import('./views/category-page'));
+const UserPageComponent = lazy(() => import('./views/user-page'));
 
 type JSXComponent = () => JSX.Element;
 
@@ -23,21 +24,27 @@ export const routes: Route[] = [
         name: "homepage"
     },
     {
-        to: ":cityName/business/:businessUrl",
-        path: "/:cityName/business/:businessUrl",
+        to: "restaurantes/:businessUrl",
+        path: "/restaurantes/:businessUrl",
         Component: BusinessPageComponent,
         name: "business-page"
     },
     {
-        to: "cities/:cityName",
-        path: "/cities/:cityName",
+        to: "ciudades/:cityName",
+        path: "/ciudades/:cityName",
         Component: CityPageComponent,
         name: "city-page"
     },
     {
-        to: "cities/:cityName/:categoryName",
-        path: "/cities/:cityName/:categoryName",
+        to: ":categoryName/:cityName",
+        path: "/:categoryName/:cityName",
         Component: CategoryPageComponent,
         name: "category-page"
+    },
+    {
+        to: "mi-perfil",
+        path: "/mi-perfil",
+        Component: UserPageComponent,
+        name: "user-page"
     }
 ];

@@ -8,7 +8,7 @@ export const CityCard = ({ city }: CityCardProps) => {
   const { cityName, country, coverImage } = city;
 
   return (
-    <Link to={`/cities/${cityName}`}>
+    <Link to={`/ciudades/${cityName}`}>
       <KiwiCityCard
         city={cityName}
         country={country}

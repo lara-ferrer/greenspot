@@ -1,4 +1,4 @@
-import { getSearchQuery } from "../queries/search";
+import { getSearchQuery } from "./queries/search";
 import { client } from "../sanity-client";
 
 export const getSearch = async (searchString: string) => {

@@ -4,7 +4,7 @@ import "../../../styles/index.scss";
 import logo from "../../../assets/brand/logo-white.svg";
 import { Icon } from "kiwi-design-system";
 import { useFetchData } from "../../../hooks/useFetchData";
-import { getCityQuery, CityMethods } from "../../../queries";
+import { getCityQuery, CityMethods } from "../../../api/queries";
 import { City } from "../../../types";
 
 export const Footer = () => {

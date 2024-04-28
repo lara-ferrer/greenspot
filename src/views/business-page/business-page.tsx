@@ -3,12 +3,13 @@ import "../../styles/index.scss";
 import { useParams } from "react-router-dom";
 import { Business } from "../../types";
 import { BusinessHeader, Carousel, Layout, Loading } from "../../components";
-import { getBusiness } from "../../api/getBusiness";
+import { getBusiness } from "../../api/get-business";
 import { BusinessMap } from "../../components/molecules/BusinessMap/BusinessMap";
 import { getSanityImageUrl } from "../../sanity-images";
 import { businessGalleryBps } from "../../constants/carousel-breakpoints";
 import "./business-page.scss";
 import { Reviews } from "./components/reviews/reviews";
+import { OpeningHours } from "./components/opening-hours/opening-hours";
 
 const BusinessPage = () => {
   const { businessUrl } = useParams();
@@ -42,23 +43,7 @@ const BusinessPage = () => {
               </p>
               <BusinessMap coordinates={business.coordinates} />
             </div>
-            <div>
-              <h4>Horario de apertura</h4>
-              <table>
-                {business.schedule.map(({ openingDay, opening, closing }) => (
-                  <tr>
-                    <th className="grsp-business-page__opening-day">
-                      <h5 className="t-uppercase">{openingDay}</h5>
-                    </th>
-                    <th className="grsp-business-page__opening-hours">
-                      <p>
-                        {opening}h - {closing}h
-                      </p>
-                    </th>
-                  </tr>
-                ))}
-              </table>
-            </div>
+            <OpeningHours business={ business } />
           </Layout>
           <Layout numberOfColumns={1}>
             <div>
