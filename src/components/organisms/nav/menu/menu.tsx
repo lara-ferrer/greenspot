@@ -3,7 +3,7 @@ import { Icon as KiwiIcon, Button as KiwiButton } from "kiwi-design-system";
 import { Searcher } from "../../../molecules/searcher/searcher";
 import { useLoginContext } from "../../../../contexts/login-context/login-context";
 import { useUserContext } from "../../../../contexts/user-context/user-context";
-import "./icons.scss";
+import "./menu.scss";
 
 export const Menu = () => {
   const [searcher, showSearcher] = useState(false);
@@ -13,7 +13,7 @@ export const Menu = () => {
   const { userProfile } = useUserContext();
 
   return (
-    <div className="grsp-menu-icons">
+    <div className="grsp-menu">
       {!searcher ? (
         <span className="c-pointer" onClick={() => showSearcher(true)}>
           <KiwiIcon name="search" />

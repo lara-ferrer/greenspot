@@ -1,8 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Breadcrumbs } from "kiwi-design-system";
-import "./category-header.scss";
-import { HeaderTemplate } from "../../../../components/organisms/header/header";
+import { Header } from "../../../../components/organisms/header/header";
 
 export const CategoryHeader = () => {
   const { cityName, categoryName } = useParams();
@@ -13,19 +11,19 @@ export const CategoryHeader = () => {
       url: '/',
     },
     {
-      title: cityName,
-      url: `/cities/${cityName}`
+      title: categoryName,
+      url: `/${categoryName}/${cityName}`,
+      isActive: true
     },
     {
-      title: categoryName,
-      url: `/cities/${cityName}/${categoryName}`,
-      isActive: true
-    }
+      title: cityName,
+      url: `/ciudades/${cityName}`
+    },
   ]
 
   return (
     <>
-      <HeaderTemplate breadcrumbLinks={breadcrumbLinks} title={`${categoryName} en ${cityName}`} />
+      <Header breadcrumbLinks={breadcrumbLinks} title={`${categoryName} en ${cityName}`} />
     </>
   );
 };

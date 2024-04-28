@@ -1,6 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Business } from "../../types";
 import { Carousel, Layout, Loading } from "../../components";
 import { getBusiness } from "../../api/get-business";
 import { BusinessMap } from "../../components/molecules/business-map/business-map";
@@ -9,6 +8,7 @@ import { businessGalleryBps } from "../../constants/carousel-breakpoints";
 import { Reviews } from "./components/reviews/reviews";
 import { OpeningHours } from "./components/opening-hours/opening-hours";
 import { BusinessHeader } from "./components/business-header/business-header";
+import { Business } from "../../types/business";
 import "../../styles/index.scss";
 import "./business-page.scss";
 

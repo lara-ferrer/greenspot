@@ -6,7 +6,7 @@ import "./nav.scss";
 
 export const Nav = () => {
   return (
-    <nav className="grsp-menu">
+    <nav className="grsp-nav">
       <a href="/" className="grsp-menu__logo">
         <img src={logo} alt="Greenspot" />
       </a>

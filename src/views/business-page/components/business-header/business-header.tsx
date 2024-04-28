@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { HeaderTemplate } from "../../../../components/organisms/header";
+import { Header } from "../../../../components/organisms/header";
 
 type BusinessHeaderProps = {
   businessName: string;
@@ -15,10 +15,6 @@ export const BusinessHeader = ({ businessName }: BusinessHeaderProps) => {
       url: '/',
     },
     {
-      title: cityName,
-      url: `/cities/${cityName}`
-    },
-    {
       title: businessName,
       isActive: true
     }
@@ -26,7 +22,7 @@ export const BusinessHeader = ({ businessName }: BusinessHeaderProps) => {
 
   return (
     <>
-      <HeaderTemplate breadcrumbLinks={breadcrumbLinks} title={businessName} />
+      <Header breadcrumbLinks={breadcrumbLinks} title={businessName} />
     </>
   );
 };

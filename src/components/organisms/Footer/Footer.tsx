@@ -1,11 +1,11 @@
 import React from "react";
-import "./footer.scss";
-import "../../../styles/index.scss";
-import logo from "../../../assets/brand/logo-white.svg";
 import { Icon } from "kiwi-design-system";
 import { useFetchData } from "../../../hooks/use-fetch-data";
 import { getCityQuery, CityMethods } from "../../../api/queries";
-import { City } from "../../../types";
+import { City } from "../../../types/city";
+import logo from "../../../assets/brand/logo-white.svg";
+import "./footer.scss";
+import "../../../styles/index.scss";
 
 export const Footer = () => {
   const getCities = getCityQuery(CityMethods.GetCities, {});

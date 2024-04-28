@@ -20,16 +20,16 @@ export const CityHeader = ({ name, image }: CityHeaderProps) => {
         <div className="grsp-city-header__content">
           <h1 className="grsp-city-header__title">{name}</h1>
           <div className="grsp-city-header__links">
-          <a href={`${name}/restaurantes`}>
+          <a href={`/restaurantes/${name}`}>
             <Button state="secondary" size="large" label="Restaurantes" />
           </a>
-          <a href={`${name}/cafeterias`}>
+          <a href={`/cafeterias/${name}`}>
             <Button state="secondary" size="large" label="Cafeterías" />
           </a>
-          <a href={`${name}/moda-y-belleza`}>
+          <a href={`/moda-y-belleza/${name}`}>
             <Button state="secondary" size="large" label="Moda y belleza" />
           </a>
-          <a href={`${name}/ocio`}>
+          <a href={`/ocio/${name}`}>
             <Button state="secondary" size="large" label="Ocio" />
           </a>
         </div>

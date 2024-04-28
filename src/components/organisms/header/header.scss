@@ -1,13 +1,17 @@
 :root {
     --kiwi-header-title-color: var(--kiwi-core-white);
+    --kiwi-header-title-size: var(--kiwi-core-fs-64);
+    --kiwi-header-bg: var(--kiwi-core-green-500);
 }
 
 .grsp-header {
-    background-color: #89DF8B;
+    background-color: var(--kiwi-header-bg);
 
     &__title {
         color: var(--kiwi-header-title-color);
+        font-size: var(--kiwi-header-title-size);
         margin-top: 24px;
+
         &:first-letter {
             text-transform: uppercase;
         }

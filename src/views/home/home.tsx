@@ -6,13 +6,14 @@ import {
   CityMethods,
   getCityQuery,
 } from "../../api/queries";
-import { Business, City } from "../../types";
 import { businessBps, cityBps } from "../../constants/carousel-breakpoints";
 import { Loading } from "../../components/atoms";
 import { CityCard } from "../../components/molecules";
 import { Section, Carousel } from "../../components/organisms";
 import { BusinessCard } from "../../components/molecules/business-card/business-card";
 import { Hero } from "./components/hero/hero";
+import { Business } from "../../types/business";
+import { City } from "../../types/city";
 
 const Home = () => {
   const getRestaurants = getBusinessQuery(BusinessMethods.GetBusinesses);

@@ -4,8 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { getSanityImageUrl } from "../../../sanity-images";
 import { Grid } from "../../templates";
 import { getCategoryBusinesses } from "../../../api/get-category-businesses";
-import { Business } from "../../../types";
 import { useFilteredBusinesses } from "../../../hooks/use-filtered-businesses";
+import { Business } from "../../../types/business";
 
 export const CategoryGrid = () => {
   const { cityName } = useParams();

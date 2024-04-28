@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import '../styles/index.scss';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { BusinessCard } from "kiwi-design-system";
@@ -9,10 +8,11 @@ import { businessBps } from '../../constants/carousel-breakpoints';
 import { Carousel, Section } from '../../components/organisms';
 import { Layout } from '../../components/templates';
 import { getCityBusinesses } from '../../api/get-city-businesses';
-import { City } from '../../types';
 import { getCity } from '../../api/get-city';
 import { Loading } from '../../components';
 import { CityHeader } from './components/city-header/city-header';
+import { City } from '../../types/city';
+import '../../styles/index.scss';
 
 const CityPage = () => {
   const { cityName } = useParams();

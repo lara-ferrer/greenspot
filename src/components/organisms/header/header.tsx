@@ -1,18 +1,18 @@
 import React from "react";
 import { Breadcrumbs as KiwiBreadcrumbs } from "kiwi-design-system";
 import { Breadcrumbs } from "../../../types/components/breadcrumbs";
-import "./header-template.scss";
+import "./header.scss";
 
-type HeaderTemplateProps = {
+type HeaderProps = {
   breadcrumbLinks: Breadcrumbs[];
   title: string;
 }
 
-export const HeaderTemplate = ({ breadcrumbLinks, title }: HeaderTemplateProps) => {
+export const Header = ({ breadcrumbLinks, title }: HeaderProps) => {
   return (
-    <section className="grsp-category-header">
+    <section className="grsp-header">
       <KiwiBreadcrumbs links={breadcrumbLinks} />
-      <h1 className="grsp-category-header__title">
+      <h1 className="grsp-header__title">
         {title}
       </h1>
     </section>
