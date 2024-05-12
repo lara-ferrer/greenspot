@@ -9,6 +9,7 @@ import { Reviews } from "./components/reviews/reviews";
 import { OpeningHours } from "./components/opening-hours/opening-hours";
 import { BusinessHeader } from "./components/business-header/business-header";
 import { Business } from "../../types/business";
+import { ReviewsProvider } from "../../contexts/reviews-context/reviews-provider";
 import "../../styles/index.scss";
 import "./business-page.scss";
 
@@ -57,7 +58,9 @@ const BusinessPage = () => {
               breakpoints={businessGalleryBps}
             />
           </div>
-          <Reviews businessId={ business._id } reviews={ business.reviews && business.reviews }/>
+          <ReviewsProvider>
+            <Reviews businessId={ business._id } reviews={ business.reviews && business.reviews }/>
+          </ReviewsProvider>
         </div>
       </Suspense>
     )

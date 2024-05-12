@@ -2,18 +2,13 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "../../../../components/organisms/header/header";
 
-export const CategoryHeader = () => {
+export const CategoryHeader = ({ title }) => {
   const { cityName, categoryName } = useParams();
 
   const breadcrumbLinks = [
     {
       title: 'Inicio',
       url: '/',
-    },
-    {
-      title: categoryName,
-      url: `/${categoryName}/${cityName}`,
-      isActive: true
     },
     {
       title: cityName,
@@ -23,7 +18,7 @@ export const CategoryHeader = () => {
 
   return (
     <>
-      <Header breadcrumbLinks={breadcrumbLinks} title={`${categoryName} en ${cityName}`} />
+      <Header breadcrumbLinks={breadcrumbLinks} title={`${title} en ${cityName}`} />
     </>
   );
 };

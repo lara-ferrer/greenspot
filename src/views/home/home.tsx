@@ -16,15 +16,15 @@ import { Business } from "../../types/business";
 import { City } from "../../types/city";
 
 const Home = () => {
-  const getRestaurants = getBusinessQuery(BusinessMethods.GetBusinesses);
-  const restaurants: Business[] = useFetchData(getRestaurants);
+  const getBusinesses = getBusinessQuery(BusinessMethods.GetBusinesses);
+  const businesses: Business[] = useFetchData(getBusinesses);
 
   const getCities = getCityQuery(CityMethods.GetCities, {});
   const cities: City[] = useFetchData(getCities);
 
-  const restaurantCards = restaurants
-    ? restaurants.map((restaurant, i) => (
-        <BusinessCard key={i} business={restaurant} />
+  const businessesCards = businesses
+    ? businesses.map((business, i) => (
+        <BusinessCard key={i} business={business} />
       ))
     : [];
 
@@ -36,7 +36,7 @@ const Home = () => {
     <Suspense fallback={<Loading />}>
       <Hero />
       <Section title="Últimos negocios añadidos">
-        <Carousel carouselItems={restaurantCards} breakpoints={businessBps} />
+        <Carousel carouselItems={businessesCards} breakpoints={businessBps} />
       </Section>
       <Section
         title="Ciudades comprometidas con la revolución verde"

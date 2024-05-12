@@ -1,16 +1,20 @@
 import React from "react";
-import { TextCard as KiwiTextCard } from 'kiwi-design-system';
+import { TextCard as KiwiTextCard } from "kiwi-design-system";
 import { ReviewListProps } from "../reviews.types";
-import './review-list.scss';
+import { Carousel } from "../../../../../components/organisms/carousel/carousel";
+import { businessReviewsBps } from "../../../../../constants/carousel-breakpoints";
+import "./review-list.scss";
 
 export const ReviewList = ({ reviews }: ReviewListProps) => {
-    return (
-        <div className="grsp-review-list">
-        {reviews?.map(({ picture, review }) =>
-            <KiwiTextCard image={picture && picture}>
-                <p>{review}</p>
-            </KiwiTextCard>
-        )}
-        </div>
-    );
+  const reviewCards = reviews?.map(({ picture, review }) => (
+    <KiwiTextCard image={picture && picture}>
+      <p>{review}</p>
+    </KiwiTextCard>
+  ));
+
+  return (
+    <div className="grsp-review-list">
+      <Carousel carouselItems={reviewCards} breakpoints={businessReviewsBps} />
+    </div>
+  );
 };

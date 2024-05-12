@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { BusinessCard } from "kiwi-design-system";
 import { Link, useParams } from "react-router-dom";
-import { getSanityImageUrl } from "../../../sanity-images";
-import { Grid } from "../../templates";
-import { getCategoryBusinesses } from "../../../api/get-category-businesses";
-import { useFilteredBusinesses } from "../../../hooks/use-filtered-businesses";
-import { Business } from "../../../types/business";
+import { getCategoryBusinesses } from "../../../../api/get-category-businesses";
+import { useFilteredBusinesses } from "../../../../hooks/use-filtered-businesses";
+import { Business } from "../../../../types/business";
+import { Grid } from "../../../../components/templates/grid/grid";
+import { getSanityImageUrl } from "../../../../sanity-images.js";
 
-export const CategoryGrid = () => {
+export const CategoryGrid = ({ categoryName }) => {
+  console.log(categoryName);
+
   const { cityName } = useParams();
   const [businesses, setBusinesses] = useState<Business[]>();
 
   useEffect(() => {
-    getCategoryBusinesses(cityName).then((data) => setBusinesses(data));
+    getCategoryBusinesses(cityName, categoryName).then((data) => setBusinesses(data));
   }, []);
 
   const filteredBusinesses: Business[] = useFilteredBusinesses(businesses);

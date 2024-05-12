@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { UserContext } from "./user-context";
 import { UserProfile } from "../../types/user-profile";
-import axios from "axios";
+import { useLoginContext } from "../login-context/login-context";
 
 export type UserProvider = {
   userProfile: UserProfile;
@@ -10,11 +11,13 @@ export type UserProvider = {
 
 export const UserProvider = ({ children }: any) => {
   const [userProfile, setUserProfile] = useState<UserProfile>();
+
+  const { isLoginSuccessful } = useLoginContext();
   
   const authTokenCookie = document.cookie.split(";")[0].split("authToken=").pop();
 
   useEffect(() => {
-    if (authTokenCookie) {
+    if (authTokenCookie && isLoginSuccessful) {
       axios
         .get(
           `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${authTokenCookie}`,

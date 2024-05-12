@@ -13,8 +13,6 @@ export const CityCard = ({ city }: CityCardProps) => {
         city={cityName}
         country={country}
         image={getSanityImageUrl(coverImage)}
-        businessCount={1}
-        businessName="restaurantes"
       />
     </Link>
   );

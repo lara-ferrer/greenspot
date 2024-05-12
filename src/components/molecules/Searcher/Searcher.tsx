@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Searcher as KiwiSearcher } from "kiwi-design-system";
 import { getSearch } from "../../../api/get-search";
 import { SearchResults } from "../../../types/search-results";
+import { mapBusinessUrl } from "../../../utils/search";
 import "./searcher.scss";
 
 type SearcherProps = {
   placeholder: string;
-  onClear?: () => void;
 };
 
-export const Searcher = ({ placeholder, onClear }: SearcherProps) => {
+export const Searcher = ({ placeholder }: SearcherProps) => {
   const [searchItem, setSearchItem] = useState<string>();
   const [searchResults, setSearchResults] = useState<SearchResults>();
 
@@ -25,11 +25,11 @@ export const Searcher = ({ placeholder, onClear }: SearcherProps) => {
     if (searchItem && searchItem.length > 5) {
       getSearch(searchItem).then((data) => {
         setSearchResults(
-          data.map(({ name, url, address, categories }) => ({
+          data.map(({ name, url, address, category, subcategories }) => ({
             name,
-            link: url,
+            link: mapBusinessUrl(category, url),
             address,
-            categories,
+            subcategories,
           }))
         );
       });
@@ -42,7 +42,7 @@ export const Searcher = ({ placeholder, onClear }: SearcherProps) => {
       results={searchResults}
       onKeyDown={(e) => handleKeyDown(e)}
       isClearable={true}
-      onClear={onClear}
+      onClear={null}
     />
   );
 };

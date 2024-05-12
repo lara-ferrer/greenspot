@@ -20,10 +20,10 @@ export const App = () => {
                 <Nav />
                 <main>
                   <Routes>
-                    {routes.map(({ path, Component }, i) => (
+                    {routes.map(({ path, Component, name, title }, i) => (
                       <Route
                         path={path}
-                        element={<Component />}
+                        element={<Component title={title} name={name} />}
                         key={`route-${i}`}
                       />
                     ))}

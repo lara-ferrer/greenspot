@@ -1,15 +1,17 @@
 export enum CityMethods {
     GetCities,
     GetCityByName,
-    GetBusinesses
+    GetCityBusinesses,
+    GetCityBusinessesByCategory
 }
 
 export type GetCityQueryParams = {
     cityName?: string;
     cityRef?: string;
+    categoryName?: string;
 }
 
-export const getCityQuery = (query: CityMethods, {cityName, cityRef}: GetCityQueryParams) => {
+export const getCityQuery = (query: CityMethods, {cityName, cityRef, categoryName}: GetCityQueryParams) => {
     if (query === CityMethods.GetCities) {
         return "*[_type == 'city']"
     }
@@ -18,7 +20,11 @@ export const getCityQuery = (query: CityMethods, {cityName, cityRef}: GetCityQue
         return `{ "cities": *[_type == 'city' && cityName == '${cityName}'] }`
     }
 
-    if (query === CityMethods.GetBusinesses) {
-        return `{ "businesses": *[_type == 'restaurant' && city._ref == '${cityRef}'] }`;
+    if (query === CityMethods.GetCityBusinesses) {
+        return `{ "businesses": *[_type == 'business' && city._ref == '${cityRef}'] }`;
+    }
+
+    if (query === CityMethods.GetCityBusinessesByCategory) {
+        return `{ "businesses": *[_type == 'business' && city._ref == '${cityRef}' && category == '${categoryName}'] }`;
     }
 }

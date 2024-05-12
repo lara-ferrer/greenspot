@@ -42,3 +42,18 @@ export const businessGalleryBps = {
     spaceBetween: 300,
   },
 };
+
+export const businessReviewsBps = {
+  768: {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  1024: {
+    slidesPerView: 4,
+    spaceBetween: 10,
+  },
+  1920: {
+    slidesPerView: 6,
+    spaceBetween: 10,
+  },
+};

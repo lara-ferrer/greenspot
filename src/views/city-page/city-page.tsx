@@ -25,7 +25,7 @@ const CityPage = () => {
   }, []);
 
   const cityBusinessesCards = cityBusinesses ? cityBusinesses.map((business, i) => (
-    <Link to={`/${cityName}/business/${business.url}`}>
+    <Link to={`/restaurantes/${business.url}`}>
       <BusinessCard
         key={i}
         title={business.name}
