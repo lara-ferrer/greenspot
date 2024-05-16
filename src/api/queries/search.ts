@@ -1,1 +1,1 @@
-export const getSearchQuery = (searchString: string) => `{ "searchResults": *[name == "${searchString}" || cityName == "${searchString}"] }`;
+export const getSearchQuery = (searchString: string) => `{ "searchResults": *[name match "${searchString}*"] }`;

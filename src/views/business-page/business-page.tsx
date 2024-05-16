@@ -39,6 +39,10 @@ const BusinessPage = () => {
           <BusinessHeader businessName={business.name} />
           <Layout numberOfColumns={2}>
             <div>
+              <h3>Datos de contacto</h3>
+              <p className="grsp-business-page__address pv--8">
+                {business.address}
+              </p>
               <h3>Localización</h3>
               <p className="grsp-business-page__address pv--8">
                 {business.address}

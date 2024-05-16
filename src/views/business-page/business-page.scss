@@ -2,11 +2,7 @@
     --grsp-layout-first-column-width: 70%;
     --grsp-layout-second-column-width: 30%;
 
-    &__opening-day {
-        text-align: right;
-    };
-
-    &__opening-hours, &__address {
+    &__address {
         font-weight: 500;
         color: var(--kiwi-core-neutral-400);
     }

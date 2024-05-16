@@ -32,5 +32,11 @@
     display: flex;
     width: 70%;
     justify-content: space-between;
+    align-self: center;
+  }
+
+  &__link {
+    width: 100%;
+    margin: 0 1rem;
   }
 }

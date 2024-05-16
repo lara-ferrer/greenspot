@@ -22,7 +22,7 @@ export const Searcher = ({ placeholder }: SearcherProps) => {
   }
 
   useEffect(() => {
-    if (searchItem && searchItem.length > 5) {
+    if (searchItem && searchItem.length > 2) {
       getSearch(searchItem).then((data) => {
         setSearchResults(
           data.map(({ name, url, address, category, subcategories }) => ({

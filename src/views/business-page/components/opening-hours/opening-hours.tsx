@@ -1,22 +1,26 @@
 import React from "react";
 import { TextCard as KiwiTextCard } from "kiwi-design-system";
-import './opening-hours.scss';
+import "./opening-hours.scss";
 
 export const OpeningHours = ({ business }) => {
+  const { schedule } = business;
+
   return (
     <div className="grsp-opening-hours">
       <KiwiTextCard>
         <h4 className="grsp-opening-hours__title">Horario de apertura</h4>
         <table>
-          {business.schedule.map(({ openingDay, opening, closing }) => (
+          {schedule.map(({ openingDay, availableHours }) => (
             <tr>
-              <th className="grsp-business-page__opening-day">
+              <th className="grsp-opening-hours__day">
                 <h5 className="t-uppercase">{openingDay}</h5>
               </th>
-              <th className="grsp-business-page__opening-hours">
-                <p>
-                  {opening}h - {closing}h
-                </p>
+              <th className="grsp-opening-hours__hours">
+                {availableHours.map(({ opening, closing }) => (
+                  <p>
+                    {opening}h - {closing}h
+                  </p>
+                ))}
               </th>
             </tr>
           ))}
