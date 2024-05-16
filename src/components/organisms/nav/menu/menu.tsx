@@ -16,9 +16,11 @@ export const Menu = () => {
   const { userProfile } = useUserContext();
 
   const handleNavigation = () => {
-    showProfileMenu(false);
+    handleOnClose();
     navigate("/mi-perfil")
   };
+
+  const handleOnClose = () => showProfileMenu(false)
 
   const options = [
     {
@@ -31,14 +33,15 @@ export const Menu = () => {
     },
   ];
 
+  console.log(profileMenu);
+
   return (
     <div className="grsp-menu">
       {!userProfile && <KiwiButton label="Iniciar sesión" onClick={() => login()} />}
       {userProfile && <span className="c-pointer" onClick={() => showProfileMenu(true)}>
         <KiwiIcon name="user" />
-        { profileMenu && <ProfileMenu options={options} onClose={() => showProfileMenu(false)} />}
       </span>}
-
+      { profileMenu && <ProfileMenu options={options} onClose={() => showProfileMenu(false)} />}
     </div>
   );
 };

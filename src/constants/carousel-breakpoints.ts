@@ -53,7 +53,7 @@ export const businessReviewsBps = {
     spaceBetween: 10,
   },
   1920: {
-    slidesPerView: 6,
-    spaceBetween: 10,
+    slidesPerView: 4,
+    spaceBetween: 350,
   },
 };

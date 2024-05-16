@@ -11,13 +11,11 @@ export type UserProvider = {
 
 export const UserProvider = ({ children }: any) => {
   const [userProfile, setUserProfile] = useState<UserProfile>();
-
-  const { isLoginSuccessful } = useLoginContext();
   
   const authTokenCookie = document.cookie.split(";")[0].split("authToken=").pop();
 
   useEffect(() => {
-    if (authTokenCookie && isLoginSuccessful) {
+    if (authTokenCookie) {
       axios
         .get(
           `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${authTokenCookie}`,
