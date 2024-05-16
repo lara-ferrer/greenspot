@@ -4,14 +4,14 @@ import { Breadcrumbs } from "../../../types/components/breadcrumbs";
 import "./header.scss";
 
 type HeaderProps = {
-  breadcrumbLinks: Breadcrumbs[];
+  breadcrumbLinks?: Breadcrumbs[];
   title: string;
 }
 
-export const Header = ({ breadcrumbLinks, title }: HeaderProps) => {
+export const Header = ({ title, breadcrumbLinks }: HeaderProps) => {
   return (
     <section className="grsp-header">
-      <KiwiBreadcrumbs links={breadcrumbLinks} />
+      { breadcrumbLinks && <KiwiBreadcrumbs links={breadcrumbLinks} /> }
       <h1 className="grsp-header__title">
         {title}
       </h1>
