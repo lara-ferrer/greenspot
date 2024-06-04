@@ -9,7 +9,7 @@ import { CityHeader } from './components/city-header/city-header';
 import { City } from '../../types/city';
 import { getCategoryBusinesses } from '../../api/get-category-businesses';
 import '../../styles/index.scss';
-import { Loading } from '../../components/atoms/loading/loading';
+import { Loading } from '../../components/atoms/Loading/Loading';
 import { BusinessCard } from '../../components/molecules/business-card/business-card';
 import { Carousel } from '../../components/organisms/carousel/carousel';
 import { Section } from '../../components/organisms/section/section';

@@ -6,7 +6,7 @@ import { routes } from "./routes";
 import { LoginProvider } from "./contexts/login-context/login-provider";
 import "./app.scss";
 import "./styles/index.scss";
-import { Loading } from "./components/atoms/loading/loading";
+import { Loading } from "./components/atoms/Loading/Loading";
 import { Footer } from "./components/organisms/footer/footer";
 import { Nav } from "./components/organisms/nav/nav";
 
