@@ -4,7 +4,7 @@ import { Icon as KiwiIcon, Button as KiwiButton } from "kiwi-design-system";
 import { useLoginContext } from "../../../../contexts/login-context/login-context";
 import { useUserContext } from "../../../../contexts/user-context/user-context";
 import { ProfileMenu } from "./profile-menu/profile-menu";
-import "./menu.scss";
+import "./menu-section.scss";
 
 export const Menu = () => {
   let navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Layout } from "../../../../components/templates/layout/layout";
+import { Layout } from "../../../../components/templates/layout-temp/layout-temp";
 import { writeClient } from "../../../../sanity-client";
 import { ReviewsProps } from "./reviews.types";
 import { NoReviews } from "./no-reviews/no-reviews";

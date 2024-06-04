@@ -1,7 +1,7 @@
 import React from "react";
 import { Breadcrumbs as KiwiBreadcrumbs } from "kiwi-design-system";
 import { Breadcrumbs } from "../../../types/components/breadcrumbs";
-import "./header.scss";
+import "./header-section.scss";
 
 type HeaderProps = {
   breadcrumbLinks?: Breadcrumbs[];

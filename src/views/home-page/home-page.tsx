@@ -8,13 +8,13 @@ import {
 } from "../../api/queries";
 import { businessBps, cityBps } from "../../constants/carousel-breakpoints";
 import { BusinessCard } from "../../components/molecules/business-card/business-card";
-import { Hero } from "./components/hero/hero";
+import { Hero } from "./components/hero-section/hero-section";
 import { Business } from "../../types/business";
 import { City } from "../../types/city";
 import { Loading } from "../../components/atoms/loading-notice/loading-notice";
 import { CityCard } from "../../components/molecules/city-card/city-card";
-import { Carousel } from "../../components/organisms/carousel/carousel";
-import { Section } from "../../components/organisms/section/section";
+import { Carousel } from "../../components/organisms/carousel-section/carousel-section";
+import { Section } from "../../components/organisms/section-org/section-org";
 
 const Home = () => {
   const getBusinesses = getBusinessQuery(BusinessMethods.GetBusinesses);

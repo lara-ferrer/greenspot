@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Header } from "../../../../components/organisms/header/header";
+import { Header } from "../../../../components/organisms/header-section/header-section";
 import { getCityById } from "../../../../api/city/get-city-by-id";
 import { translateCategoriesToName, translateCategoriesToLink } from "../../../../utils/translations/es";
 

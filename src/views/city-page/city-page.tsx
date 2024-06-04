@@ -11,9 +11,9 @@ import { getCategoryBusinesses } from '../../api/get-category-businesses';
 import '../../styles/index.scss';
 import { Loading } from '../../components/atoms/loading-notice/loading-notice';
 import { BusinessCard } from '../../components/molecules/business-card/business-card';
-import { Carousel } from '../../components/organisms/carousel/carousel';
-import { Section } from '../../components/organisms/section/section';
-import { Layout } from '../../components/templates/layout/layout';
+import { Carousel } from '../../components/organisms/carousel-section/carousel-section';
+import { Section } from '../../components/organisms/section-org/section-org';
+import { Layout } from '../../components/templates/layout-temp/layout-temp';
 
 const CityPage = () => {
   const { cityName } = useParams();

@@ -4,7 +4,7 @@ import { getSearch } from "../../../api/get-search";
 import { SearchResults } from "../../../types/search-results";
 import { mapBusinessUrl } from "../../../utils/search";
 import { translateSubcategoriesToName } from "../../../utils/translations/es";
-import "./searcher.scss";
+import "./searcher-bar.scss";
 
 type SearcherProps = {
   placeholder: string;

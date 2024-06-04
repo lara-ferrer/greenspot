@@ -1,5 +1,5 @@
 import React from "react"
-import './grid.scss';
+import './grid-temp.scss';
 
 export const Grid = ({ children }: any) => {
     return (

@@ -13,8 +13,8 @@ import { ReviewsProvider } from "../../contexts/reviews-context/reviews-provider
 import "../../styles/index.scss";
 import "./business-page.scss";
 import { Loading } from "../../components/atoms/loading-notice/loading-notice";
-import { Carousel } from "../../components/organisms/carousel/carousel";
-import { Layout } from "../../components/templates/layout/layout";
+import { Carousel } from "../../components/organisms/carousel-section/carousel-section";
+import { Layout } from "../../components/templates/layout-temp/layout-temp";
 
 const BusinessPage = () => {
   const { businessUrl } = useParams();
