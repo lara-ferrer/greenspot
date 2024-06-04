@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../styles/index.scss';
-import { SectionTitle } from '../../molecules';
+import { SectionTitle } from '../../molecules/section-title/section-title';
 
 type SectionProps = {
   title: string;

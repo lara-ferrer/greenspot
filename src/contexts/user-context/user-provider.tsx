@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { UserContext } from "./user-context";
-import { UserProfile } from "../../types/user-profile";
+import { UserProfile } from "../../types/user-profile.types";
 import { useLoginContext } from "../login-context/login-context";
 
 export type UserProvider = {

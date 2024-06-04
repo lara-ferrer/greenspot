@@ -1,7 +1,7 @@
 import React from 'react';
-import { Searcher } from '../../../../components/molecules/searcher/searcher';
+import { Searcher } from '../../../../components/molecules/searcher-bar/searcher-bar';
 import '../../../../styles/index.scss';
-import './hero.scss';
+import './hero-section.scss';
 
 export const Hero = () => {
   return (

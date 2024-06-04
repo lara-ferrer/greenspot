@@ -1,13 +1,14 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Nav, Footer } from "./components/organisms";
-import { Loading } from "./components/atoms";
 import { SubcategoryFilterProvider } from "./contexts/subcategory-filter-context/subcategory-filter-provider";
 import { UserProvider } from "./contexts/user-context/user-provider";
 import { routes } from "./routes";
 import { LoginProvider } from "./contexts/login-context/login-provider";
-import "./app.scss";
+import "./grsp-app.scss";
 import "./styles/index.scss";
+import { Loading } from "./components/atoms/loading-notice/loading-notice";
+import { Footer } from "./components/organisms/footer-section/footer-section";
+import { Nav } from "./components/organisms/nav-section/nav-section";
 
 export const App = () => {
   return (

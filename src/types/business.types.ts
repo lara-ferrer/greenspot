@@ -1,6 +1,6 @@
-import { SanityCityRef } from "./city";
-import { Coordinates } from "./coordinates";
-import { Schedule } from "./schedule";
+import { SanityCityRef } from "./city.types";
+import { Coordinates } from "./coordinates.types";
+import { Schedule } from "./schedule.types";
 
 export type Business = {
     _id: string;

@@ -2,16 +2,18 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { getSanityImageUrl } from "../../sanity-images";
-import { Business } from '../../types/business';
+import { Business } from '../../types/business.types';
 import { businessBps } from '../../constants/carousel-breakpoints';
-import { Carousel, Section } from '../../components/organisms';
-import { Layout } from '../../components/templates';
 import { getCity } from '../../api/city/get-city';
-import { BusinessCard, Loading } from '../../components';
 import { CityHeader } from './components/city-header/city-header';
-import { City } from '../../types/city';
+import { City } from '../../types/city.types';
 import { getCategoryBusinesses } from '../../api/get-category-businesses';
 import '../../styles/index.scss';
+import { Loading } from '../../components/atoms/loading-notice/loading-notice';
+import { BusinessCard } from '../../components/molecules/business-card/business-card';
+import { Carousel } from '../../components/organisms/carousel-section/carousel-section';
+import { Section } from '../../components/organisms/section-org/section-org';
+import { Layout } from '../../components/templates/layout-temp/layout-temp';
 
 const CityPage = () => {
   const { cityName } = useParams();

@@ -1,7 +1,7 @@
 import React from "react";
 import { TextCard as KiwiTextCard } from "kiwi-design-system";
 import { ReviewListProps } from "../reviews.types";
-import { Carousel } from "../../../../../components/organisms/carousel/carousel";
+import { Carousel } from "../../../../../components/organisms/carousel-section/carousel-section";
 import { businessReviewsBps } from "../../../../../constants/carousel-breakpoints";
 import "./review-list.scss";
 

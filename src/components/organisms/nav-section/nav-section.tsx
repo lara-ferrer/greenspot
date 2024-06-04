@@ -1,8 +1,8 @@
 import React from "react";
-import { Menu } from "./menu/menu";
+import { Menu } from "./menu-section/menu-section";
 import logo from "../../../assets/brand/logo-green.svg";
 import "../../../styles/index.scss";
-import "./nav.scss";
+import "./nav-section.scss";
 
 export const Nav = () => {
   return (

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCategoryBusinesses } from "../../../../api/get-category-businesses";
 import { useFilteredBusinesses } from "../../../../hooks/use-filtered-businesses";
-import { Business } from "../../../../types/business";
-import { Grid } from "../../../../components/templates/grid/grid";
+import { Business } from "../../../../types/business.types";
+import { Grid } from "../../../../components/templates/grid-temp/grid-temp";
 import { BusinessCard } from "../../../../components/molecules/business-card/business-card";
 
 export const CategoryGrid = ({ categoryName }) => {

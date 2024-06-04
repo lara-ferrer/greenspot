@@ -1,7 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Icon } from "kiwi-design-system";
-import { Carousel, Layout, Loading } from "../../components";
 import { getBusiness } from "../../api/get-business";
 import { BusinessMap } from "../../components/molecules/business-map/business-map";
 import { getSanityImageUrl } from "../../sanity-images";
@@ -9,10 +8,13 @@ import { businessGalleryBps } from "../../constants/carousel-breakpoints";
 import { Reviews } from "./components/reviews/reviews";
 import { OpeningHours } from "./components/opening-hours/opening-hours";
 import { BusinessHeader } from "./components/business-header/business-header";
-import { Business } from "../../types/business";
+import { Business } from "../../types/business.types";
 import { ReviewsProvider } from "../../contexts/reviews-context/reviews-provider";
 import "../../styles/index.scss";
 import "./business-page.scss";
+import { Loading } from "../../components/atoms/loading-notice/loading-notice";
+import { Carousel } from "../../components/organisms/carousel-section/carousel-section";
+import { Layout } from "../../components/templates/layout-temp/layout-temp";
 
 const BusinessPage = () => {
   const { businessUrl } = useParams();
