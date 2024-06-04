@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import { getSanityImageUrl } from "../../sanity-images";
 import { Business } from '../../types/business';
 import { businessBps } from '../../constants/carousel-breakpoints';
-import { Carousel, Section } from '../../components/organisms';
-import { Layout } from '../../components/templates';
 import { getCity } from '../../api/city/get-city';
-import { BusinessCard, Loading } from '../../components';
 import { CityHeader } from './components/city-header/city-header';
 import { City } from '../../types/city';
 import { getCategoryBusinesses } from '../../api/get-category-businesses';
 import '../../styles/index.scss';
+import { Loading } from '../../components/atoms/loading/loading';
+import { BusinessCard } from '../../components/molecules/business-card/business-card';
+import { Carousel } from '../../components/organisms/carousel/carousel';
+import { Section } from '../../components/organisms/section/section';
+import { Layout } from '../../components/templates/layout/layout';
 
 const CityPage = () => {
   const { cityName } = useParams();

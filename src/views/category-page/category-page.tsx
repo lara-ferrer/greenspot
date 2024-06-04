@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
-import { FilterBar } from "../../components/organisms";
-import { Layout } from "../../components/templates";
-import { Loading } from "../../components";
 import { CategoryHeader } from "./components/category-header/category-header";
 import { CategoryGrid } from "./components/category-grid/category-grid";
+import { Loading } from "../../components/atoms/loading/loading";
+import { FilterBar } from "../../components/organisms/filter-bar/filter-bar";
+import { Layout } from "../../components/templates/layout/layout";
 
 const CategoryPage = ({ title, name }) => {
   return (

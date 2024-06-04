@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
 import { TextCard as KiwiTextCard } from "kiwi-design-system";
-import { Layout, Loading } from "../components";
 import { useUserContext } from "../contexts/user-context/user-context";
 import { Header } from "../components/organisms/header/header";
+import { Loading } from "../components/atoms/loading/loading";
+import { Layout } from "../components/templates/layout/layout";
 
 export const UserPage = () => {
   const { userProfile } = useUserContext();
