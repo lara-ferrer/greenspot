@@ -1,10 +1,9 @@
 import React from "react";
-import { Icon } from "kiwi-design-system";
 import { useFetchData } from "../../../hooks/use-fetch-data";
 import { getCityQuery, CityMethods } from "../../../api/queries";
 import { City } from "../../../types/city";
 import logo from "../../../assets/brand/logo-white.svg";
-import "./footer.scss";
+import "./footer-section.scss";
 import "../../../styles/index.scss";
 
 export const Footer = () => {

@@ -7,7 +7,7 @@ import { LoginProvider } from "./contexts/login-context/login-provider";
 import "./app.scss";
 import "./styles/index.scss";
 import { Loading } from "./components/atoms/loading-notice/loading-notice";
-import { Footer } from "./components/organisms/footer/footer";
+import { Footer } from "./components/organisms/footer-section/footer-section";
 import { Nav } from "./components/organisms/nav/nav";
 
 export const App = () => {
