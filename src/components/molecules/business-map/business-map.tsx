@@ -1,7 +1,7 @@
 import React from "react";
 import L from "leaflet";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
-import { Coordinates } from "../../../types/coordinates";
+import { Coordinates } from "../../../types/coordinates.types";
 import "./business-map.scss";
 import icon from "../../../assets/icons/leaf.svg";
 

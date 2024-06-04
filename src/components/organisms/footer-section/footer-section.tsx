@@ -1,7 +1,7 @@
 import React from "react";
 import { useFetchData } from "../../../hooks/use-fetch-data";
 import { getCityQuery, CityMethods } from "../../../api/queries";
-import { City } from "../../../types/city";
+import { City } from "../../../types/city.types";
 import logo from "../../../assets/brand/logo-white.svg";
 import "./footer-section.scss";
 import "../../../styles/index.scss";

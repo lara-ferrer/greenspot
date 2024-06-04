@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Searcher as KiwiSearcher } from "kiwi-design-system";
 import { getSearch } from "../../../api/get-search";
-import { SearchResults } from "../../../types/search-results";
+import { SearchResults } from "../../../types/search-results.types";
 import { mapBusinessUrl } from "../../../utils/search";
 import { translateSubcategoriesToName } from "../../../utils/translations/es";
 import "./searcher-bar.scss";

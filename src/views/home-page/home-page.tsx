@@ -9,8 +9,8 @@ import {
 import { businessBps, cityBps } from "../../constants/carousel-breakpoints";
 import { BusinessCard } from "../../components/molecules/business-card/business-card";
 import { Hero } from "./components/hero-section/hero-section";
-import { Business } from "../../types/business";
-import { City } from "../../types/city";
+import { Business } from "../../types/business.types";
+import { City } from "../../types/city.types";
 import { Loading } from "../../components/atoms/loading-notice/loading-notice";
 import { CityCard } from "../../components/molecules/city-card/city-card";
 import { Carousel } from "../../components/organisms/carousel-section/carousel-section";

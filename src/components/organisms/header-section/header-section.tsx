@@ -1,6 +1,6 @@
 import React from "react";
 import { Breadcrumbs as KiwiBreadcrumbs } from "kiwi-design-system";
-import { Breadcrumbs } from "../../../types/components/breadcrumbs";
+import { Breadcrumbs } from "../../../types/components/breadcrumbs.types";
 import "./header-section.scss";
 
 type HeaderProps = {

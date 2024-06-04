@@ -8,7 +8,7 @@ import { businessGalleryBps } from "../../constants/carousel-breakpoints";
 import { Reviews } from "./components/reviews/reviews";
 import { OpeningHours } from "./components/opening-hours/opening-hours";
 import { BusinessHeader } from "./components/business-header/business-header";
-import { Business } from "../../types/business";
+import { Business } from "../../types/business.types";
 import { ReviewsProvider } from "../../contexts/reviews-context/reviews-provider";
 import "../../styles/index.scss";
 import "./business-page.scss";
