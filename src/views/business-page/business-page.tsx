@@ -12,7 +12,7 @@ import { Business } from "../../types/business";
 import { ReviewsProvider } from "../../contexts/reviews-context/reviews-provider";
 import "../../styles/index.scss";
 import "./business-page.scss";
-import { Loading } from "../../components/atoms/loading/loading";
+import { Loading } from "../../components/atoms/loading-notice/loading-notice";
 import { Carousel } from "../../components/organisms/carousel/carousel";
 import { Layout } from "../../components/templates/layout/layout";
 

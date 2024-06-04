@@ -11,7 +11,7 @@ import { BusinessCard } from "../../components/molecules/business-card/business-
 import { Hero } from "./components/hero/hero";
 import { Business } from "../../types/business";
 import { City } from "../../types/city";
-import { Loading } from "../../components/atoms/loading/loading";
+import { Loading } from "../../components/atoms/loading-notice/loading-notice";
 import { CityCard } from "../../components/molecules/city-card/city-card";
 import { Carousel } from "../../components/organisms/carousel/carousel";
 import { Section } from "../../components/organisms/section/section";
