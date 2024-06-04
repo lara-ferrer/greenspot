@@ -2,7 +2,7 @@ import path from path;
 
 
 module.exports = {
-    entry: './src/app.tsx',
+    entry: './src/App.tsx',
     target: "node",
     output: {
         path: path.resolve(__dirname, 'dist'),
