@@ -1,5 +1,21 @@
 .grsp-business-page {
-    &__gallery {
-        height: 600px;
+    --grsp-layout-first-column-width: 70%;
+    --grsp-layout-second-column-width: 30%;
+
+    &__contact-text {
+        margin-left: var(--kiwi-core-spacing-4);
+    }
+
+    &__address {
+        font-weight: 500;
+        color: var(--kiwi-core-neutral-400);
+    }
+
+    &__image {
+        width: 500px;
+    }
+
+    .kiwi-icon {
+        --kiwi-icon-fs: var(--kiwi-core-fs-16);
     }
 }

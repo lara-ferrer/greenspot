@@ -1,0 +1,10 @@
+#map {
+  .leaflet-container {
+    height: 400px;
+    z-index: 0;
+  }
+
+  .leaflet-control-attribution {
+    display: none;
+  }
+}

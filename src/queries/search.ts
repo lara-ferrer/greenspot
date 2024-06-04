@@ -1,1 +1,0 @@
-export const getSearchQuery = (searchString: string) => `{ "searchResults": *[name == "${searchString}" || cityName == "${searchString}"] }`;

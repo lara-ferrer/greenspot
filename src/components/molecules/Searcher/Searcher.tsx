@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Searcher as KiwiSearcher } from "kiwi-design-system";
-import { getSearch } from "../../../api/getSearch";
+import { getSearch } from "../../../api/get-search";
 import { SearchResults } from "../../../types/search-results";
+import { mapBusinessUrl } from "../../../utils/search";
+import { translateSubcategoriesToName } from "../../../utils/translations/es";
 import "./searcher.scss";
 
 type SearcherProps = {
@@ -21,14 +23,14 @@ export const Searcher = ({ placeholder }: SearcherProps) => {
   }
 
   useEffect(() => {
-    if (searchItem && searchItem.length > 5) {
+    if (searchItem && searchItem.length > 2) {
       getSearch(searchItem).then((data) => {
         setSearchResults(
-          data.map(({ name, url, address, categories }) => ({
+          data.map(({ name, url, address, category, subcategories }) => ({
             name,
-            link: url,
+            link: mapBusinessUrl(category, url),
             address,
-            categories,
+            categories: translateSubcategoriesToName(subcategories),
           }))
         );
       });
@@ -40,6 +42,8 @@ export const Searcher = ({ placeholder }: SearcherProps) => {
       placeholder={placeholder}
       results={searchResults}
       onKeyDown={(e) => handleKeyDown(e)}
+      isClearable={true}
+      onClear={null}
     />
   );
 };

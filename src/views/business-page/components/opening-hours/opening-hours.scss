@@ -1,0 +1,28 @@
+.grsp-opening-hours {
+    height: 100%;
+
+    &__title {
+        margin-bottom: 1.5rem;
+    }
+
+    &__day {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__hours {
+        font-weight: 500;
+        color: var(--kiwi-core-neutral-400);
+        text-align: left;
+        line-height: 30px;
+    }
+
+    .kiwi-text-card {
+        --kiwi-text-card-min-height: fit-content;
+
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }  
+}

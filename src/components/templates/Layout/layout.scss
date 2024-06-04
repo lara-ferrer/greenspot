@@ -1,12 +1,18 @@
+@import "./layout.tokens.scss";
+
 .grsp-layout {
     display: flex;
 
     &__first {
-        width: 30%;
+        width: var(--grsp-layout-first-column-width);
     }
 
     &__second {
-        width: 70%;
+        width: var(--grsp-layout-second-column-width);
+    }
+
+    &--1 > div {
+        width: 100%;
     }
 
     &--2 {

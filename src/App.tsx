@@ -1,28 +1,40 @@
 import React, { Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Nav, Footer } from "./components/organisms";
+import { Loading } from "./components/atoms";
+import { SubcategoryFilterProvider } from "./contexts/subcategory-filter-context/subcategory-filter-provider";
+import { UserProvider } from "./contexts/user-context/user-provider";
+import { routes } from "./routes";
+import { LoginProvider } from "./contexts/login-context/login-provider";
 import "./app.scss";
 import "./styles/index.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Menu, Footer } from "./components/organisms";
-import { Loading } from "./components/atoms";
-import { CategoryFilterProvider } from "./contexts/CategoryFilterContext/CategoryFilterProvider";
-import { routes } from "./routes";
 
 export const App = () => {
   return (
     <Suspense fallback={<Loading />}>
-      <CategoryFilterProvider>
-        <BrowserRouter>
-          <div className="grsp">
-            <Menu />
-            <main>
-              <Routes>
-                {routes.map(({ path, Component }) => <Route path={ path } element={ <Component /> } />)}
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </BrowserRouter>
-      </CategoryFilterProvider>
+      <SubcategoryFilterProvider>
+        <LoginProvider>
+          <UserProvider>
+            <BrowserRouter>
+              <div className="grsp">
+                <Nav />
+                <main>
+                  <Routes>
+                    {routes.map(({ path, Component, name, title }, i) => (
+                      <Route
+                        path={path}
+                        element={<Component title={title} name={name} />}
+                        key={`route-${i}`}
+                      />
+                    ))}
+                  </Routes>
+                </main>
+                <Footer />
+              </div>
+            </BrowserRouter>
+          </UserProvider>
+        </LoginProvider>
+      </SubcategoryFilterProvider>
     </Suspense>
   );
 };
