@@ -2,7 +2,8 @@ export enum CityMethods {
     GetCities,
     GetCityByName,
     GetCityBusinesses,
-    GetCityBusinessesByCategory
+    GetCityBusinessesByCategory,
+    GetCityById
 }
 
 export type GetCityQueryParams = {
@@ -18,6 +19,10 @@ export const getCityQuery = (query: CityMethods, {cityName, cityRef, categoryNam
 
     if (query === CityMethods.GetCityByName) {
         return `{ "cities": *[_type == 'city' && cityName == '${cityName}'] }`
+    }
+
+    if (query === CityMethods.GetCityById) {
+        return `{ "cities": *[_type == 'city' && _id == '${cityRef}'] }`
     }
 
     if (query === CityMethods.GetCityBusinesses) {

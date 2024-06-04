@@ -10,7 +10,7 @@ export const UserPage = () => {
   return (
     <Suspense fallback={<Loading />}>
       <Header title="Mi perfil" />
-        <Layout numberOfColumns={2}>
+        <Layout numberOfColumns={1}>
           <KiwiTextCard>
             <div className="d-flex">
               <img src={userProfile.picture} alt="Foto del usuario" />
@@ -20,9 +20,6 @@ export const UserPage = () => {
               </div>
             </div>
           </KiwiTextCard>
-          <div>
-            <h2>Mis reseñas</h2>
-          </div>
         </Layout>
     </Suspense>
   );

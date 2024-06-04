@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Nav, Footer } from "./components/organisms";
 import { Loading } from "./components/atoms";
-import { CategoryFilterProvider } from "./contexts/category-filter-context/category-filter-provider";
+import { SubcategoryFilterProvider } from "./contexts/subcategory-filter-context/subcategory-filter-provider";
 import { UserProvider } from "./contexts/user-context/user-provider";
 import { routes } from "./routes";
 import { LoginProvider } from "./contexts/login-context/login-provider";
@@ -12,7 +12,7 @@ import "./styles/index.scss";
 export const App = () => {
   return (
     <Suspense fallback={<Loading />}>
-      <CategoryFilterProvider>
+      <SubcategoryFilterProvider>
         <LoginProvider>
           <UserProvider>
             <BrowserRouter>
@@ -34,7 +34,7 @@ export const App = () => {
             </BrowserRouter>
           </UserProvider>
         </LoginProvider>
-      </CategoryFilterProvider>
+      </SubcategoryFilterProvider>
     </Suspense>
   );
 };

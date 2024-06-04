@@ -1,10 +1,17 @@
 a {
-    text-decoration: none;
+  text-decoration: none;
+  transition: var(--kiwi-core-medium-transition);
+
+  &:hover {
+    color: var(--kiwi-semantic-primary-contrast);
+    transition: var(--kiwi-core-medium-transition);
+  }
 }
+
 section {
-    padding: 50px 100px;
+  padding: 50px 100px;
 }
 
 .swiper {
-    z-index: 0;
+  z-index: 0;
 }

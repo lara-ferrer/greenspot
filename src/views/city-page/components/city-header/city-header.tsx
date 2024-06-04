@@ -29,9 +29,6 @@ export const CityHeader = ({ name, image }: CityHeaderProps) => {
           <a href={`/${name}/moda-y-belleza`} className="grsp-city-header__link">
             <Button state="secondary" size="large" label="Moda y belleza" />
           </a>
-          <a href={`/${name}/ocio`} className="grsp-city-header__link">
-            <Button state="secondary" size="large" label="Ocio" />
-          </a>
         </div>
         </div>
       </div>

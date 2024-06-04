@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Icon as KiwiIcon, Button as KiwiButton } from "kiwi-design-system";
-import { Searcher } from "../../../molecules/searcher/searcher";
 import { useLoginContext } from "../../../../contexts/login-context/login-context";
 import { useUserContext } from "../../../../contexts/user-context/user-context";
 import { ProfileMenu } from "./profile-menu/profile-menu";
@@ -9,7 +8,6 @@ import "./menu.scss";
 
 export const Menu = () => {
   let navigate = useNavigate();
-  const [searcher, showSearcher] = useState(false);
   const [profileMenu, showProfileMenu] = useState(false);
   
   const { login, logOut } = useLoginContext();
@@ -32,8 +30,6 @@ export const Menu = () => {
       action: () => logOut(),
     },
   ];
-
-  console.log(profileMenu);
 
   return (
     <div className="grsp-menu">

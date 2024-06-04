@@ -1,5 +1,5 @@
-import { getCityQuery, CityMethods } from "./queries";
-import { client } from "../sanity-client";
+import { getCityQuery, CityMethods } from "../queries";
+import { client } from "../../sanity-client";
 
 export const getCityBusinesses = async (cityName: string) => {
   const getCityByName = getCityQuery(CityMethods.GetCityByName, { cityName });

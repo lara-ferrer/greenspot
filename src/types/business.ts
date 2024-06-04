@@ -1,3 +1,4 @@
+import { SanityCityRef } from "./city";
 import { Coordinates } from "./coordinates";
 import { Schedule } from "./schedule";
 
@@ -5,9 +6,12 @@ export type Business = {
     _id: string;
     name: string;
     url: string;
-    city: string;
+    city: SanityCityRef;
     address: string;
-    categories: any;
+    website: string;
+    phoneNumber: string;
+    category: string;
+    subcategories: Array<string>;
     coverImage: string;
     images: string[];
     coordinates: Coordinates;

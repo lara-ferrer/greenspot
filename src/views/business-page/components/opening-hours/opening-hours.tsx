@@ -10,17 +10,18 @@ export const OpeningHours = ({ business }) => {
       <KiwiTextCard>
         <h4 className="grsp-opening-hours__title">Horario de apertura</h4>
         <table>
-          {schedule.map(({ openingDay, availableHours }) => (
+          {schedule.map(({ openingDay, availableHours, isClosed }) => (
             <tr>
               <th className="grsp-opening-hours__day">
                 <h5 className="t-uppercase">{openingDay}</h5>
               </th>
               <th className="grsp-opening-hours__hours">
-                {availableHours.map(({ opening, closing }) => (
+                {!isClosed && availableHours.map(({ opening, closing }) => (
                   <p>
                     {opening}h - {closing}h
                   </p>
                 ))}
+                {isClosed && <p>cerrado</p>}
               </th>
             </tr>
           ))}

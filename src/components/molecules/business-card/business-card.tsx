@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { BusinessCard as KiwiBusinessCard } from "kiwi-design-system";
 import { getSanityImageUrl } from "../../../sanity-images";
 import { BusinessCardProps } from "../../../types/components/business-card";
+import { translateSubcategoriesToName } from "../../../utils/translations/es";
 
 export const BusinessCard = ({ business }: BusinessCardProps) => {
   const {
     name,
     url,
     address,
-    categories,
+    subcategories,
     coverImage
   } = business;
 
@@ -18,7 +19,7 @@ export const BusinessCard = ({ business }: BusinessCardProps) => {
       <KiwiBusinessCard
         title={name}
         address={address}
-        categories={categories}
+        categories={translateSubcategoriesToName(subcategories)}
         image={getSanityImageUrl(coverImage)}
       />
     </Link>

@@ -3,6 +3,7 @@ import { Searcher as KiwiSearcher } from "kiwi-design-system";
 import { getSearch } from "../../../api/get-search";
 import { SearchResults } from "../../../types/search-results";
 import { mapBusinessUrl } from "../../../utils/search";
+import { translateSubcategoriesToName } from "../../../utils/translations/es";
 import "./searcher.scss";
 
 type SearcherProps = {
@@ -29,7 +30,7 @@ export const Searcher = ({ placeholder }: SearcherProps) => {
             name,
             link: mapBusinessUrl(category, url),
             address,
-            subcategories,
+            categories: translateSubcategoriesToName(subcategories),
           }))
         );
       });

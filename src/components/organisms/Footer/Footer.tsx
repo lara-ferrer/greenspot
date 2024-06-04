@@ -15,9 +15,6 @@ export const Footer = () => {
     <nav className="grsp-footer">
       <div className="grsp-footer__column grsp-footer__brand">
         <img src={logo} alt="Greenspot" />
-        <a href="https://www.tiktok.com/@greenspot.app" target="_blank">
-          <Icon name="instagram" />
-        </a>
       </div>
       <div className="grsp-footer__column">
         <h4>Los mejores restaurantes green-friendly</h4>

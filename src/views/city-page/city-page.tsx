@@ -1,42 +1,60 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import { BusinessCard } from "kiwi-design-system";
 import { getSanityImageUrl } from "../../sanity-images";
 import { Business } from '../../types/business';
 import { businessBps } from '../../constants/carousel-breakpoints';
 import { Carousel, Section } from '../../components/organisms';
 import { Layout } from '../../components/templates';
-import { getCityBusinesses } from '../../api/get-city-businesses';
-import { getCity } from '../../api/get-city';
-import { Loading } from '../../components';
+import { getCity } from '../../api/city/get-city';
+import { BusinessCard, Loading } from '../../components';
 import { CityHeader } from './components/city-header/city-header';
 import { City } from '../../types/city';
+import { getCategoryBusinesses } from '../../api/get-category-businesses';
 import '../../styles/index.scss';
 
 const CityPage = () => {
   const { cityName } = useParams();
   const [city, setCity] = useState<City>();
-  const [cityBusinesses, setCityBusinesses] = useState<Business[]>();
+  const [cityRestaurants, setCityRestaurants] = useState<Business[]>();
+  const [cityCoffees, setCityCoffees] = useState<Business[]>();
+  const [cityFashion, setCityFashion] = useState<Business[]>();
+
+  const image = city && getSanityImageUrl(city.coverImage);
 
   useEffect(() => {
     getCity(cityName).then((data) => setCity(data));
-    getCityBusinesses(cityName).then((data) => setCityBusinesses(data));
+    getCategoryBusinesses(cityName, 'restaurant').then((data) => setCityRestaurants(data));
+    getCategoryBusinesses(cityName, 'cafe').then((data) => setCityCoffees(data));
+    getCategoryBusinesses(cityName, 'fashion').then((data) => setCityFashion(data));
   }, []);
 
-  const cityBusinessesCards = cityBusinesses ? cityBusinesses.map((business, i) => (
-    <Link to={`/restaurantes/${business.url}`}>
+  const cityRestaurantCards = cityRestaurants ? cityRestaurants.map((restaurant, i) => (
+    <Link to={`/restaurantes/${restaurant.url}`}>
       <BusinessCard
         key={i}
-        title={business.name}
-        address={business.address}
-        categories={business.categories}
-        image={getSanityImageUrl(business.coverImage)}
+        business={restaurant}
       />
     </Link>
   )) : [];
 
-  const image = city && getSanityImageUrl(city.coverImage);
+  const cityCoffeeCards = cityCoffees ? cityCoffees.map((coffee, i) => (
+    <Link to={`/cafeterias/${coffee.url}`}>
+      <BusinessCard
+        key={i}
+        business={coffee}
+      />
+    </Link>
+  )) : [];
+
+  const cityFashionCards = cityFashion ? cityFashion.map((fashion, i) => (
+    <Link to={`/moda-y-belleza/${fashion.url}`}>
+      <BusinessCard
+        key={i}
+        business={fashion}
+      />
+    </Link>
+  )) : [];
 
   return (
     <Suspense fallback={ <Loading/> }>
@@ -50,9 +68,21 @@ const CityPage = () => {
           <img src={image} alt={cityName} className="w-100" />
         </div>
       </Layout>
-      <Section title={`Los mejores restaurantes en ${cityName}`}>
+      <Section title={`Los mejores restaurantes en ${cityName}`} link={`/${cityName}/restaurantes`}>
         <Carousel
-          carouselItems={cityBusinessesCards}
+          carouselItems={cityRestaurantCards}
+          breakpoints={businessBps}
+        />
+      </Section>
+      <Section title={`Las mejores cafeterías en ${cityName}`} link={`/${cityName}/cafeterias`}>
+        <Carousel
+          carouselItems={cityCoffeeCards}
+          breakpoints={businessBps}
+        />
+      </Section>
+      <Section title={`Los mejores negocios de moda y belleza en ${cityName}`} link={`/${cityName}/moda-y-belleza`}>
+        <Carousel
+          carouselItems={cityFashionCards}
           breakpoints={businessBps}
         />
       </Section>

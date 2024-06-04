@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Icon } from "kiwi-design-system";
 import { Carousel, Layout, Loading } from "../../components";
 import { getBusiness } from "../../api/get-business";
 import { BusinessMap } from "../../components/molecules/business-map/business-map";
@@ -36,20 +37,35 @@ const BusinessPage = () => {
     business && (
       <Suspense fallback={<Loading />}>
         <div className="grsp-business-page">
-          <BusinessHeader businessName={business.name} />
+          <BusinessHeader
+            businessName={business.name}
+            categoryName={business.category}
+            cityId={business.city._ref}
+          />
           <Layout numberOfColumns={2}>
             <div>
-              <h3>Datos de contacto</h3>
-              <p className="grsp-business-page__address pv--8">
-                {business.address}
-              </p>
-              <h3>Localización</h3>
-              <p className="grsp-business-page__address pv--8">
-                {business.address}
-              </p>
+              <div className="mb--12">
+                <h3>Datos de contacto</h3>
+                <p className="grsp-business-page__address pv--8">
+                  <Icon name="location" />
+                  <span className="grsp-business-page__contact-text">{business.address}</span>
+                </p>
+                <p className="grsp-business-page__address mb--8">
+                  <Icon name="link" />
+                  <a className="grsp-business-page__contact-text" href={business.website} target="_blank">
+                    {business.website}
+                  </a>
+                </p>
+                <p className="grsp-business-page__address">
+                  <Icon name="phone" />
+                  <a className="grsp-business-page__contact-text" href={`tel:${business.phoneNumber}`}>
+                    {business.phoneNumber}
+                  </a>
+                </p>
+              </div>
               <BusinessMap coordinates={business.coordinates} />
             </div>
-            <OpeningHours business={ business } />
+            <OpeningHours business={business} />
           </Layout>
           <Layout numberOfColumns={1}>
             <div>
@@ -63,7 +79,10 @@ const BusinessPage = () => {
             />
           </div>
           <ReviewsProvider>
-            <Reviews businessId={ business._id } reviews={ business.reviews && business.reviews }/>
+            <Reviews
+              businessId={business._id}
+              reviews={business.reviews && business.reviews}
+            />
           </ReviewsProvider>
         </div>
       </Suspense>

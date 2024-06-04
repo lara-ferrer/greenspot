@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
-import { useCategoryFilterContext } from "../contexts/category-filter-context/category-filter-context";
+import { useSubcategoryFilterContext } from "../contexts/subcategory-filter-context/subcategory-filter-context";
 
 export const useFilteredBusinesses = (businesses) => {
-  const { categoryFilters } = useCategoryFilterContext();
+  const { subcategoryFilters } = useSubcategoryFilterContext();
   const [ filteredBusinesses, setFilteredBusinesses ] = useState();
 
   useEffect(() => {
-    if (categoryFilters.length) {
-        const filteredBusinesses = businesses.filter(({ categories }) => 
-        categories.find((category) => categoryFilters.includes(category)
+    if (subcategoryFilters.length) {
+        const filteredBusinesses = businesses.filter(({ subcategories }) => 
+        subcategories.find((subcategory) => subcategoryFilters.includes(subcategory)
         ));
   
         setFilteredBusinesses(filteredBusinesses);
     }
 
-    if (!categoryFilters.length) {
+    if (!subcategoryFilters.length) {
         setFilteredBusinesses(businesses);
     }
-  }, [businesses, categoryFilters]);
+  }, [businesses, subcategoryFilters]);
 
   return filteredBusinesses;
 };
