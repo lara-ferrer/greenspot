@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getCategoryBusinesses } from "../../../../api/get-category-businesses";
 import { useFilteredBusinesses } from "../../../../hooks/use-filtered-businesses";
 import { Business } from "../../../../types/business.types";
@@ -20,9 +20,9 @@ export const CategoryGrid = ({ categoryName }) => {
 
   const getBusinessesCards = () => {
     const businessesCards = filteredBusinesses.map((business, i) => (
-      <a href={`/${cityName}/business/${business.url}`} key={i}>
+      <Link to={`/${cityName}/business/${business.url}`} key={i}>
         <BusinessCard key={i} business={business} />
-      </a>
+      </Link>
     ));
 
     return businessesCards;

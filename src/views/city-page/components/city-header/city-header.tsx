@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from 'kiwi-design-system';
 import "./city-header.scss";
 
@@ -20,15 +21,15 @@ export const CityHeader = ({ name, image }: CityHeaderProps) => {
         <div className="grsp-city-header__content">
           <h1 className="grsp-city-header__title">{name}</h1>
           <div className="grsp-city-header__links">
-          <a href={`/${name}/restaurantes`} className="grsp-city-header__link">
+          <Link to={`/${name}/restaurantes`} className="grsp-city-header__link">
             <Button state="secondary" size="large" label="Restaurantes" />
-          </a>
-          <a href={`/${name}/cafeterias`} className="grsp-city-header__link">
+          </Link>
+          <Link to={`/${name}/cafeterias`} className="grsp-city-header__link">
             <Button state="secondary" size="large" label="Cafeterías" />
-          </a>
-          <a href={`/${name}/moda-y-belleza`} className="grsp-city-header__link">
+          </Link>
+          <Link to={`/${name}/moda-y-belleza`} className="grsp-city-header__link">
             <Button state="secondary" size="large" label="Moda y belleza" />
-          </a>
+          </Link>
         </div>
         </div>
       </div>

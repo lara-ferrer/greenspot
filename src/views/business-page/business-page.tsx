@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Icon } from "kiwi-design-system";
 import { getBusiness } from "../../api/get-business";
 import { BusinessMap } from "../../components/molecules/business-map/business-map";
@@ -54,15 +54,15 @@ const BusinessPage = () => {
                 </p>
                 <p className="grsp-business-page__address mb--8">
                   <Icon name="link" />
-                  <a className="grsp-business-page__contact-text" href={business.website} target="_blank">
+                  <Link className="grsp-business-page__contact-text" to={business.website} target="_blank">
                     {business.website}
-                  </a>
+                  </Link>
                 </p>
                 <p className="grsp-business-page__address">
                   <Icon name="phone" />
-                  <a className="grsp-business-page__contact-text" href={`tel:${business.phoneNumber}`}>
+                  <Link className="grsp-business-page__contact-text" to={`tel:${business.phoneNumber}`}>
                     {business.phoneNumber}
-                  </a>
+                  </Link>
                 </p>
               </div>
               <BusinessMap coordinates={business.coordinates} />
