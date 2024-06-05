@@ -44,29 +44,38 @@ const BusinessPage = () => {
             categoryName={business.category}
             cityId={business.city._ref}
           />
-          <Layout numberOfColumns={2}>
-            <div>
-              <div className="mb--12">
-                <h3>Datos de contacto</h3>
-                <p className="grsp-business-page__address pv--8">
-                  <Icon name="location" />
-                  <span className="grsp-business-page__contact-text">{business.address}</span>
-                </p>
-                <p className="grsp-business-page__address mb--8">
-                  <Icon name="link" />
-                  <Link className="grsp-business-page__contact-text" to={business.website} target="_blank">
-                    {business.website}
-                  </Link>
-                </p>
-                <p className="grsp-business-page__address">
-                  <Icon name="phone" />
-                  <Link className="grsp-business-page__contact-text" to={`tel:${business.phoneNumber}`}>
-                    {business.phoneNumber}
-                  </Link>
-                </p>
-              </div>
-              <BusinessMap coordinates={business.coordinates} />
+          <Layout className="grsp-business-page__contact-section" numberOfColumns={1}>
+            <div className="mb--12">
+              <h3>Datos de contacto</h3>
+              <p className="grsp-business-page__address pv--8">
+                <Icon name="location" />
+                <span className="grsp-business-page__contact-text">
+                  {business.address}
+                </span>
+              </p>
+              <p className="grsp-business-page__address pv--8">
+                <Icon name="link" />
+                <Link
+                  className="grsp-business-page__contact-text"
+                  to={business.website}
+                  target="_blank"
+                >
+                  {business.website}
+                </Link>
+              </p>
+              <p className="grsp-business-page__address pv--8">
+                <Icon name="phone" />
+                <Link
+                  className="grsp-business-page__contact-text"
+                  to={`tel:${business.phoneNumber}`}
+                >
+                  {business.phoneNumber}
+                </Link>
+              </p>
             </div>
+          </Layout>
+          <Layout numberOfColumns={2} className="grsp-business-page__map-section">
+            <BusinessMap coordinates={business.coordinates} />
             <OpeningHours business={business} />
           </Layout>
           <Layout numberOfColumns={1}>

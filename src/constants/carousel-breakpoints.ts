@@ -1,11 +1,15 @@
 export const businessBps = {
   768: {
     slidesPerView: 2,
-    spaceBetween: 50,
+    spaceBetween: 5,
   },
   1024: {
     slidesPerView: 3,
-    spaceBetween: 100,
+    spaceBetween: 10,
+  },
+  1200: {
+    slidesPerView: 3,
+    spaceBetween: 10,
   },
   1920: {
     slidesPerView: 6,
@@ -14,13 +18,18 @@ export const businessBps = {
 };
 
 export const cityBps = {
+
   768: {
     slidesPerView: 2,
-    spaceBetween: 50,
+    spaceBetween: 5,
   },
   1024: {
     slidesPerView: 3,
     spaceBetween: 100,
+  },
+  1200: {
+    slidesPerView: 3,
+    spaceBetween: 30,
   },
   1920: {
     slidesPerView: 6,

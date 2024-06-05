@@ -2,13 +2,20 @@
 
 .grsp-layout {
     display: flex;
+    flex-direction: row;
 
     &__first {
         width: var(--grsp-layout-first-column-width);
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
     }
 
     &__second {
         width: var(--grsp-layout-second-column-width);
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
     }
 
     &--1 > div {
@@ -17,5 +24,9 @@
 
     &--2 {
         gap: 3em;
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
     }
 }

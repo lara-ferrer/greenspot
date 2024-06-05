@@ -1,13 +1,17 @@
 .grsp-review-list {
-    display: flex;
-    gap: 2em;
+  display: flex;
+  gap: 2em;
 
-    &__date {
-        color: var(--kiwi-core-neutral-400);
-        font-size: var(--kiwi-core-fs-14);
-    }
+  &__date {
+    color: var(--kiwi-core-neutral-400);
+    font-size: var(--kiwi-core-fs-14);
+  }
 }
 
 .kiwi-text-card {
-    max-width: 400px;
+  max-width: 400px;
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
 }
