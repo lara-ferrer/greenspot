@@ -2,7 +2,6 @@
 
 .grsp-layout {
     display: flex;
-    flex-direction: row;
 
     &__first {
         width: var(--grsp-layout-first-column-width);

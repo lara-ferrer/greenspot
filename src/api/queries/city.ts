@@ -33,3 +33,4 @@ export const getCityQuery = (query: CityMethods, {cityName, cityRef, categoryNam
         return `{ "businesses": *[_type == 'business' && city._ref == '${cityRef}' && category == '${categoryName}'] }`;
     }
 }
+

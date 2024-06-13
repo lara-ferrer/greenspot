@@ -1,8 +1,6 @@
 import React from "react";
 import { TextCard as KiwiTextCard } from "kiwi-design-system";
 import { ReviewListProps } from "../reviews.types";
-import { Carousel } from "../../../../../components/organisms/carousel-section/carousel-section";
-import { businessReviewsBps } from "../../../../../constants/carousel-breakpoints";
 import "./review-list.scss";
 
 export const ReviewList = ({ reviews }: ReviewListProps) => {
@@ -20,7 +18,7 @@ export const ReviewList = ({ reviews }: ReviewListProps) => {
 
   return (
     <div className="grsp-review-list">
-      <Carousel carouselItems={reviewCards} breakpoints={businessReviewsBps} />
+      {reviewCards}
     </div>
   );
 };
