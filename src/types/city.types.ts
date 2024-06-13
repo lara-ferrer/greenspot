@@ -7,4 +7,5 @@ export type City = {
     coverImage: string;
     country: string;
     businessType?: string;
+    cityDescription: string;
 }

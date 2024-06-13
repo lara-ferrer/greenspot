@@ -62,11 +62,11 @@ const CityPage = () => {
     <Suspense fallback={ <Loading/> }>
       <CityHeader image={image} name={cityName} />
       <Layout numberOfColumns={2}>
-        <div>
-          <h2>Descubre {cityName}</h2>
-          <p>Lorem ipsum</p>
-        </div>
         <div className="align-right">
+          <h2>Descubre {cityName}</h2>
+          <p>{city?.cityDescription}</p>
+        </div>
+        <div className="align-left">
           <img src={image} alt={cityName} className="w-100" />
         </div>
       </Layout>
