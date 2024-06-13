@@ -1,21 +1,34 @@
 .grsp-business-page {
-    --grsp-layout-first-column-width: 70%;
-    --grsp-layout-second-column-width: 30%;
+  --grsp-layout-first-column-width: 70%;
+  --grsp-layout-second-column-width: 30%;
 
-    &__contact-text {
-        margin-left: var(--kiwi-core-spacing-4);
-    }
+  &__contact-text {
+    margin-left: var(--kiwi-core-spacing-4);
+  }
 
-    &__address {
-        font-weight: 500;
-        color: var(--kiwi-core-neutral-400);
-    }
+  &__address {
+    font-weight: 500;
+    color: var(--kiwi-core-neutral-400);
+  }
 
-    &__image {
-        width: 500px;
-    }
+  &__image {
+    width: 500px;
+  }
 
-    .kiwi-icon {
-        --kiwi-icon-fs: var(--kiwi-core-fs-16);
+  &__contact-section {
+    padding-bottom: 0;
+  }
+
+  &__map-section {
+    padding-top: 0;
+
+    .grsp-layout__first {
+      margin: 0 auto;
+      height: 100%;
     }
+  }
+
+  .kiwi-icon {
+    --kiwi-icon-fs: var(--kiwi-core-fs-16);
+  }
 }

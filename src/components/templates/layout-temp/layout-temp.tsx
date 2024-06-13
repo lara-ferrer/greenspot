@@ -39,7 +39,7 @@ export const Layout = ({
 
   return (
     <section
-      className={`${className} ${getPositionClassname} grsp-layout grsp-layout--${numberOfColumns}`}
+      className={`${className ? className : ''} ${getPositionClassname} grsp-layout grsp-layout--${numberOfColumns}`}
     >
       {columns}
     </section>

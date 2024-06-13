@@ -42,7 +42,7 @@ export const Searcher = ({ placeholder }: SearcherProps) => {
       placeholder={placeholder}
       results={searchResults}
       onKeyDown={(e) => handleKeyDown(e)}
-      isClearable={true}
+      isClearable={false}
       onClear={null}
     />
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useFetchData } from "../../../hooks/use-fetch-data";
 import { getCityQuery, CityMethods } from "../../../api/queries";
 import { City } from "../../../types/city.types";
@@ -19,39 +20,39 @@ export const Footer = () => {
         <h4>Los mejores restaurantes green-friendly</h4>
         {cities &&
           cities.map(({ cityName }, i) => (
-            <a
+            <Link
               className="grsp-footer__link"
-              href={`/${cityName}/restaurantes`}
+              to={`/${cityName}/restaurantes`}
               key={`res-${i}`}
             >
               Restaurantes en {cityName}
-            </a>
+            </Link>
           ))}
       </div>
       <div className="grsp-footer__column">
         <h4>Las mejores cafeterías green-friendly</h4>
         {cities &&
           cities.map(({ cityName }, i) => (
-            <a
+            <Link
               className="grsp-footer__link"
-              href={`/${cityName}/cafeterias`}
+              to={`/${cityName}/cafeterias`}
               key={`coffee-${i}`}
             >
               Cafeterías en {cityName}
-            </a>
+            </Link>
           ))}
       </div>
       <div className="grsp-footer__column">
         <h4>Moda y belleza green-friendly</h4>
         {cities &&
           cities.map(({ cityName }, i) => (
-            <a
+            <Link
               className="grsp-footer__link"
-              href={`/${cityName}/moda-y-belleza`}
+              to={`/${cityName}/moda-y-belleza`}
               key={`shop-${i}`}
             >
               Tiendas en {cityName}
-            </a>
+            </Link>
           ))}
       </div>
     </nav>

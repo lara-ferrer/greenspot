@@ -14,6 +14,7 @@ export const Reviews = ({ businessId }: ReviewsProps) => {
   const { businessUrl } = useParams();
   const [review, setReview] = useState<string>();
   const [actualReviews, setActualReviews] = useState<any[]>();
+  const [reviewStatus, setReviewStatus] = useState<string>();
 
   useEffect(() => {
     getReviews(businessUrl).then((data) => setActualReviews(data));
@@ -41,11 +42,11 @@ export const Reviews = ({ businessId }: ReviewsProps) => {
       .commit({
         autoGenerateArrayKeys: true,
       })
-      .then((res) => {
-        console.log(res)
+      .then(() => {
+        setReviewStatus('OK')
       })
-      .catch((err) => {
-        console.error('Oh no, the update failed: ', err.message)
+      .catch(() => {
+        setReviewStatus('KO')
       });
 
     return result;
@@ -61,7 +62,7 @@ export const Reviews = ({ businessId }: ReviewsProps) => {
       <div className="grsp-business-page__reviews-first-section">
         {!actualReviews?.length && <p>Todavía no hay opiniones para este negocio. ¡Sé el primero y deja la tuya!</p>}
         {!userProfile && actualReviews?.length && <NoReviewAllowed /> }
-        {userProfile && <NoReviews onBlur={handleOnBlur} sendReview={sendReview} /> }
+        {userProfile && <NoReviews reviewStatus={reviewStatus} onBlur={handleOnBlur} sendReview={sendReview} /> }
       </div>
       <div className="grsp-business-page__reviews-second-section">
         {actualReviews?.length && <ReviewList reviews={actualReviews} /> }
